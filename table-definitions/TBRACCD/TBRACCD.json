@@ -1,0 +1,481 @@
+{
+  "name": "TBRACCD",
+  "description": "Account Charge/Payment Detail Table",
+  "type": "data",
+  "tags": [
+    "financial",
+    "student"
+  ],
+  "queries": [],
+  "columns": [
+    {
+      "name": "TBRACCD_PIDM",
+      "type": "NUMBER(8,0)",
+      "nullable": "No",
+      "description": "Internal Identification Number of the person or non-person account, valid in SPRIDEN.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TRAN_NUMBER",
+      "type": "NUMBER(8,0)",
+      "nullable": "No",
+      "description": "Transaction number (one-up within entity) of the transaction.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TERM_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "nullable": "No",
+      "description": "Term associated with the transaction. For student transactions valid in STVTERM, or ARTERM for non-student transactions.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_DETAIL_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "nullable": "No",
+      "description": "Detail code associated with the transaction, valid in TBBDETC.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_USER",
+      "type": "VARCHAR2(30 CHAR)",
+      "nullable": "No",
+      "description": "User ID of the cashier who created the transaction.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_ENTRY_DATE",
+      "type": "DATE",
+      "nullable": "No",
+      "description": "Entry date and time of the transaction, when initially created.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_AMOUNT",
+      "type": "NUMBER(16,2)",
+      "nullable": "No",
+      "description": "Amount of the transaction.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_BALANCE",
+      "type": "NUMBER(16,2)",
+      "nullable": "No",
+      "description": "Balance remaining for the transaction, as adjusted by the application of payment process. A negative balance is a credit on the account; a positive balance is a charge.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_EFFECTIVE_DATE",
+      "type": "DATE",
+      "nullable": "No",
+      "description": "Effective date of the transaction used to calculate amount due, determine placement on the bill, and control feed to finance system based on Accounts Receivable System Control setting.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_BILL_DATE",
+      "type": "DATE",
+      "nullable": "Yes",
+      "description": "Date that the transaction is billed.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_DUE_DATE",
+      "type": "DATE",
+      "nullable": "Yes",
+      "description": "Due date set when the transaction is billed.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_DESC",
+      "type": "VARCHAR2(30 CHAR)",
+      "nullable": "Yes",
+      "description": "Free-form description associated with the transaction. Default value comes from the Detail Code description (TBBDETC).",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_RECEIPT_NUMBER",
+      "type": "NUMBER(8,0)",
+      "nullable": "Yes",
+      "description": "Receipt number associated with the transaction, if generated when the transaction was created.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TRAN_NUMBER_PAID",
+      "type": "NUMBER(8,0)",
+      "nullable": "Yes",
+      "description": "Transaction Number Paid is used in application of payment to force this transaction to liquidate a specific transaction on the account.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CROSSREF_PIDM",
+      "type": "NUMBER(8,0)",
+      "nullable": "Yes",
+      "description": "Cross Reference internal identification number. Associates student and third party sponsor (source code C) or student and lender (source code F), valid in SPRIDEN.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CROSSREF_NUMBER",
+      "type": "NUMBER(8,0)",
+      "nullable": "Yes",
+      "description": "Cross Reference Number for third party transactions (contract number when source code is C), exemption credits (exemption number when source code is E), or deposits released (deposit transaction number when source code is D).",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CROSSREF_DETAIL_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "nullable": "Yes",
+      "description": "Cross Reference Detail Code for contract or exemption credits calculated based on detail code rules, valid in TBBDETC.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_SRCE_CODE",
+      "type": "VARCHAR2(1 CHAR)",
+      "nullable": "No",
+      "description": "Source of the transaction when created on the account, including registration, housing, deposit, user entered, and so on. The default value is user entered transaction (T), valid in TTVSRCE.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_ACCT_FEED_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "nullable": "No",
+      "description": "Status of the transaction in the accounting feed. Valid values are: Y - Feed transaction, F - Transaction fed, N - Do not feed transaction.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_ACTIVITY_DATE",
+      "type": "DATE",
+      "nullable": "No",
+      "description": "The last date this row was created or updated.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_SESSION_NUMBER",
+      "type": "NUMBER",
+      "nullable": "No",
+      "description": "Cashier session number in which this transaction was posted (0 = current session).",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CSHR_END_DATE",
+      "type": "DATE",
+      "nullable": "Yes",
+      "description": "End date and time of the cashiering session for this transaction.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CRN",
+      "type": "VARCHAR2(5 CHAR)",
+      "nullable": "Yes",
+      "description": "Course Reference Number (CRN) of the course which generated the charge, when Track by CRN is used in Fee Assessment.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CROSSREF_SRCE_CODE",
+      "type": "VARCHAR2(1 CHAR)",
+      "nullable": "Yes",
+      "description": "Cross Reference Source for contract or exemption credits, valid in TTVSRCE.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_LOC_MDT",
+      "type": "VARCHAR2(1 CHAR)",
+      "nullable": "Yes",
+      "description": "Location Management Type. Valid values are M for monthly charges, T for term-based charges, or D for daily charges.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_LOC_MDT_SEQ",
+      "type": "NUMBER(2,0)",
+      "nullable": "Yes",
+      "description": "Location Management sequence in which monthly charges were added. Used in subsequent processing to calculate adjustments.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_RATE",
+      "type": "NUMBER(12,6)",
+      "nullable": "Yes",
+      "description": "A per-unit rate used to calculate the amount. Optional for non-student transactions; not allowed for student transactions.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_UNITS",
+      "type": "NUMBER(12,6)",
+      "nullable": "Yes",
+      "description": "Number of Units is multiplied by the specified Rate to calculate the amount. Optional for non-student transactions; not allowed for student transactions.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_DOCUMENT_NUMBER",
+      "type": "VARCHAR2(8 CHAR)",
+      "nullable": "Yes",
+      "description": "Document number that references a source document for the transaction.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TRANS_DATE",
+      "type": "DATE",
+      "nullable": "Yes",
+      "description": "Transaction date used by the finance system to control posting to the ledgers.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_PAYMENT_ID",
+      "type": "VARCHAR2(20 CHAR)",
+      "nullable": "Yes",
+      "description": "Free-form information identifying a payment; often used to record check or credit card number.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_INVOICE_NUMBER",
+      "type": "VARCHAR2(8 CHAR)",
+      "nullable": "Yes",
+      "description": "Invoice Number identifies a group of charges invoiced via one statement.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_STATEMENT_DATE",
+      "type": "DATE",
+      "nullable": "Yes",
+      "description": "The date a statement was generated.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_INV_NUMBER_PAID",
+      "type": "VARCHAR2(8 CHAR)",
+      "nullable": "Yes",
+      "description": "Invoice Number Paid is used in application of payment to force a payment to liquidate a specific group of charges.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CURR_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "nullable": "Yes",
+      "description": "Foreign currency code used when creating a payment, valid in GTVCURR and GURCURR.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_EXCHANGE_DIFF",
+      "type": "NUMBER(16,2)",
+      "nullable": "Yes",
+      "description": "Exchange difference between a foreign currency amount as of the date entered and the value 1) as of the bill date when processed with Invoice Number Paid or 2) as of the charge transaction date when processed with Transaction Number Paid.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_FOREIGN_AMOUNT",
+      "type": "NUMBER(16,2)",
+      "nullable": "Yes",
+      "description": "Amount of the transaction stated in foreign currency.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_LATE_DCAT_CODE",
+      "type": "VARCHAR2(3 CHAR)",
+      "nullable": "Yes",
+      "description": "Category of the late charge detail code, valid in TTVDCAT.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_FEED_DATE",
+      "type": "DATE",
+      "nullable": "Yes",
+      "description": "Date this transaction was fed to the finance system.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_FEED_DOC_CODE",
+      "type": "VARCHAR2(8 CHAR)",
+      "nullable": "Yes",
+      "description": "Document code used to feed this transaction to the finance system.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_ATYP_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "nullable": "Yes",
+      "description": "In combination with ATYP_SEQNO, the address where the bill for this transaction will be sent. Required for non-student transactions; not allowed for student transactions. Valid in STVATYP.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_ATYP_SEQNO",
+      "type": "NUMBER(2,0)",
+      "nullable": "Yes",
+      "description": "In combination with ATYP_CODE, the address where the bill for this transaction will be sent. Required for non-student transactions; not allowed for student transactions. Combination valid and active in SPRADDR.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CARD_TYPE_VR",
+      "type": "VARCHAR2(1 CHAR)",
+      "nullable": "Yes",
+      "description": "Credit Card Type used for Voice Response messages, valid in TTVCCRD.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CARD_EXP_DATE_VR",
+      "type": "DATE",
+      "nullable": "Yes",
+      "description": "Credit card expiration date supplied at time of credit card payment.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CARD_AUTH_NUMBER_VR",
+      "type": "VARCHAR2(12 CHAR)",
+      "nullable": "Yes",
+      "description": "Credit card authorization number received when transaction was processed.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CROSSREF_DCAT_CODE",
+      "type": "VARCHAR2(3 CHAR)",
+      "nullable": "Yes",
+      "description": "Cross Reference Category Code for contract or exemption credits calculated based on category code rules, valid in TTVDCAT.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_ORIG_CHG_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "nullable": "Yes",
+      "description": "Indicates that the transaction is to be considered as an original charge for the Title IV recalculation process, as opposed to subsequent adjustments due to withdrawal. Valid values are Y (original) or null.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CCRD_CODE",
+      "type": "VARCHAR2(10 CHAR)",
+      "nullable": "Yes",
+      "description": "Code identifying Credit Card Type used in authorizations via gateway, valid in GTVCCRD.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_MERCHANT_ID",
+      "type": "VARCHAR2(20 CHAR)",
+      "nullable": "Yes",
+      "description": "Merchant ID associated with the Process Name Code, Credit Card Type Code, and System Code. The Merchant ID is included in the credit card payment request transmitted to the vendor handling credit card payments.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TAX_REPT_YEAR",
+      "type": "NUMBER(4,0)",
+      "nullable": "Yes",
+      "description": "Tax Year in which the transaction was reported on form 1098-T.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TAX_REPT_BOX",
+      "type": "VARCHAR2(2 CHAR)",
+      "nullable": "Yes",
+      "description": "TAX REPORT BOX: Tax Report Box in which the transaction was reported on form 1098T for tax year prior to 2018 or towards max amount for Payments Received after 2017. Values (CB) Qualified Charges Billed, (AC) Adjustments to Prior Charges.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TAX_AMOUNT",
+      "type": "NUMBER(16,2)",
+      "nullable": "Yes",
+      "description": "Tax Amount as reported on form 1098-T. Sign relates pay type to report box, and may be pro-rated based on allocation rules.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TAX_FUTURE_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "nullable": "Yes",
+      "description": "TAX FUTURE IND: Tax Report Future Indicator is valued with Y if the transaction was reported on form 1098-T as a term beginning in a future tax year for rule CB, or null.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "nullable": "Yes",
+      "description": "Source system that last created or updated the data.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CREATE_SOURCE",
+      "type": "VARCHAR2(30 CHAR)",
+      "nullable": "Yes",
+      "description": "Source system that initially created the record.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_CPDT_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "nullable": "Yes",
+      "description": "Indicates that contract payment detail is used for application of a payment to contract charges (Y or NULL).",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_AIDY_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "nullable": "Yes",
+      "description": "AID YEAR: The aid year associated with the Financial Aid disbursement.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_STSP_KEY_SEQUENCE",
+      "type": "NUMBER(2,0)",
+      "nullable": "Yes",
+      "description": "STUDY PATH SEQUENCE: Key sequence of the study path for the course registration.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_PERIOD",
+      "type": "VARCHAR2(15 CHAR)",
+      "nullable": "Yes",
+      "description": "PERIOD: The enrollment period code for the.Financial Aid disbursement.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TAX_REPT_BOX_PR",
+      "type": "VARCHAR2(2 BYTE)",
+      "nullable": "Yes",
+      "description": "TAX REPT BOX PR: Tax Report Box in which the transaction was eligible for reporting on the form 1098T. Values (PR) Qualified Payments Received, (AP) Adjustments to Payments Received.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TAX_REPT_BOX_SG",
+      "type": "VARCHAR2(2 BYTE)",
+      "nullable": "Yes",
+      "description": "TAX REPT BOX SG: Tax Report Box in which the transaction was reported on the form 1098T. Values (SG) Scholarship or Grant, (AS) Adjustments to Scholarship or Grant.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TAX_FUTURE_IND_PR",
+      "type": "VARCHAR2(1 BYTE)",
+      "nullable": "Yes",
+      "description": "TAX FUTURE IND PR: Tax Report Future Indicator is valued with Y if the transaction was reported on form 1098-T as a term beginning in a future tax year for rule PR, or null.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_TAX_FUTURE_IND_SG",
+      "type": "VARCHAR2(1 BYTE)",
+      "nullable": "Yes",
+      "description": "TAX FUTURE IND SG: Tax Report Future Indicator is valued with Y if the transaction was reported on form 1098-T as a term beginning in a future tax year for rule SG, or null.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "nullable": "No",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_VERSION",
+      "type": "NUMBER(19,0)",
+      "nullable": "No",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_USER_ID",
+      "type": "VARCHAR2(30 BYTE)",
+      "nullable": "Yes",
+      "description": "USER ID: The user ID of the person who inserted or last updated this record.",
+      "definition_table": ""
+    },
+    {
+      "name": "TBRACCD_VPDI_CODE",
+      "type": "VARCHAR2(6 BYTE)",
+      "nullable": "Yes",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    }
+  ]
+}
