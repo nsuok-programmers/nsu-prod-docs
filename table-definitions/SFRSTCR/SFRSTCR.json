@@ -2,7 +2,13 @@
   "name": "SFRSTCR",
   "description": "Student Course Registration Repeating Table",
   "type": "data",
-  "tags": [],
+  "tags": [
+    "enrollment",
+    "student",
+    "registration",
+    "course",
+    "credits"
+  ],
   "queries": [
     {
       "file": "student_classes_by_term.sql",
@@ -20,7 +26,7 @@
       "name": "SFRSTCR_CRN",
       "type": "VARCHAR2(5 CHAR)",
       "description": "This field identifies the course reference number associated with the class section.",
-      "definition_table": ""
+      "definition_table": "SSBSECT"
     },
     {
       "name": "SFRSTCR_PIDM",
@@ -32,13 +38,13 @@
       "name": "SFRSTCR_TERM_CODE",
       "type": "VARCHAR2(6 CHAR)",
       "description": "This field identifies the registration term code.",
-      "definition_table": ""
+      "definition_table": "STVTERM"
     },
     {
       "name": "SFRSTCR_CLASS_SORT_KEY",
       "type": "NUMBER(4,0)",
       "description": "This field identifies the class of the registrant.",
-      "definition_table": ""
+      "definition_table": "STVCLAS"
     },
     {
       "name": "SFRSTCR_REG_SEQ",
@@ -50,13 +56,13 @@
       "name": "SFRSTCR_PTRM_CODE",
       "type": "VARCHAR2(3 CHAR)",
       "description": "This field identifies the part-of-term code associated with this CRN.",
-      "definition_table": ""
+      "definition_table": "SOBPTRM"
     },
     {
       "name": "SFRSTCR_RSTS_CODE",
       "type": "VARCHAR2(2 CHAR)",
       "description": "This field identifies the course registration status associated with this CRN.",
-      "definition_table": ""
+      "definition_table": "STVRSTS"
     },
     {
       "name": "SFRSTCR_RSTS_DATE",
@@ -116,13 +122,13 @@
       "name": "SFRSTCR_GRDE_CODE",
       "type": "VARCHAR2(6 CHAR)",
       "description": "This field identifies the grade code associated with this CRN.",
-      "definition_table": ""
+      "definition_table": "STVGRDE"
     },
     {
       "name": "SFRSTCR_GRDE_CODE_MID",
       "type": "VARCHAR2(6 CHAR)",
       "description": "This field identifies the mid-term grade code associated with this CRN.",
-      "definition_table": ""
+      "definition_table": "STVGRDE"
     },
     {
       "name": "SFRSTCR_GRDE_DATE",
@@ -218,13 +224,13 @@
       "name": "SFRSTCR_LEVL_CODE",
       "type": "VARCHAR2(2 CHAR)",
       "description": "This field identifies the level the registrant is enrolled for this CRN.",
-      "definition_table": ""
+      "definition_table": "STVLEVL"
     },
     {
       "name": "SFRSTCR_CAMP_CODE",
       "type": "VARCHAR2(3 CHAR)",
       "description": "This field identifies the campus code of this CRN.",
-      "definition_table": ""
+      "definition_table": "STVCAMP"
     },
     {
       "name": "SFRSTCR_RESERVED_KEY",
@@ -290,7 +296,7 @@
       "name": "SFRSTCR_GCMT_CODE",
       "type": "VARCHAR2(7 CHAR)",
       "description": "GRADE COMMENT CODE: This field indicates the grade comment (result code) for the section.",
-      "definition_table": ""
+      "definition_table": "STVGCMT"
     },
     {
       "name": "SFRSTCR_DATA_ORIGIN",
@@ -326,7 +332,7 @@
       "name": "SFRSTCR_RMSG_CDE",
       "type": "VARCHAR2(4 CHAR)",
       "description": "MESSAGE CODE: Specifies the type of error message.",
-      "definition_table": ""
+      "definition_table": "SFRRMSG"
     },
     {
       "name": "SFRSTCR_WL_PRIORITY",
@@ -344,7 +350,7 @@
       "name": "SFRSTCR_GRDE_CODE_INCMP_FINAL",
       "type": "VARCHAR2(6 CHAR)",
       "description": "INCOMPLETE FINAL DEFAULT GRADE CODE: Grade code to identify default final grade for incomplete coursework.",
-      "definition_table": ""
+      "definition_table": "STVGRDE"
     },
     {
       "name": "SFRSTCR_INCOMPLETE_EXT_DATE",
@@ -374,7 +380,7 @@
       "name": "SFRSTCR_BLCK_CODE",
       "type": "VARCHAR2(10 CHAR)",
       "description": "BLOCK: Block code student is registered.",
-      "definition_table": ""
+      "definition_table": "STVBLCK"
     },
     {
       "name": "SFRSTCR_SURROGATE_ID",

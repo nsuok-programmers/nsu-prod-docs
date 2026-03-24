@@ -1,0 +1,49 @@
+{
+  "name": "WM_SLL_CRSE",
+  "description": "Custom Watermark table for courses to be sent to System Admin/SLL. SCBCRSE is matched on these courses in the Watermark Courses/Sections/Enrollments files, to only send approved courses into the panel. The Watermark project can be found in GitLab under NSU-ENTERPRISE / Autobot.",
+  "type": "data",
+  "tags": [
+    "watermark",
+    "sll",
+    "course",
+    "enrollment"
+  ],
+  "queries": [
+    {
+      "file": "course_import.sql",
+      "name": "Watermark Course Import",
+      "description": ""
+    },
+    {
+      "file": "enrollment_import.sql",
+      "name": "Watermark Enrollment Import",
+      "description": ""
+    }
+  ],
+  "columns": [
+    {
+      "name": "WM_SLL_CRSE_CRSE_NUMB",
+      "type": "VARCHAR2(5 CHAR)",
+      "description": "Subject code for the course. Matches onto scbcrse_subj_code/ssbsect_subj_code",
+      "definition_table": ""
+    },
+    {
+      "name": "WM_SLL_CRSE_SUBJ_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "Course number for the course. Matches onto scbcrse_crse_numb/ssbsect_crse_numb",
+      "definition_table": "STVSUBJ"
+    },
+    {
+      "name": "WM_SLL_CRSE_COLL_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "College code. Does not necessarily have to associate with Banner's college code for a course, just want Lisa/Lori/Dr. Keller/Watermark functional users want the course to fall under in Watermark.",
+      "definition_table": "STVCOLL"
+    },
+    {
+      "name": "WM_SLL_CRSE_NODE_NAME",
+      "type": "VARCHAR2(50 CHAR)",
+      "description": "Node Name for the course. This just means what hierarchy \"node\" the course will fall under in Watermark.",
+      "definition_table": ""
+    }
+  ]
+}
