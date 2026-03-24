@@ -1,8 +1,8 @@
 {
   "name": "SGBSTDN",
-  "description": "Student Base Table",
+  "description": "Student Base Table. <br><br>For all Majors, Minors, and Concentrations, consult STVMAJR. If all are in one query, you will need multiple JOINS. See example queries.",
   "type": "data",
-  "tags": [],
+  "tags": ["student", "major", "minor", "concentration", "level"],
   "queries": [
     {
       "file": "most_recent.sql",
@@ -17,27 +17,39 @@
   ],
   "columns": [
     {
+      "name": "SGBSTDN_PIDM",
+      "type": "NUMBER(0,8)",
+      "description": "Internal unique identifier for the student. JOIN on this.",
+      "definition_table": "STVSTST"
+    },
+    {
       "name": "SGBSTDN_STST_CODE",
       "type": "VARCHAR2(2 CHAR)",
       "description": "This field identifies the students status for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVSTST"
+    },
+    {
+      "name": "SGBSTDN_STST_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "This field identifies the students status for the effective term.",
+      "definition_table": "STVSTST"
     },
     {
       "name": "SGBSTDN_LEVL_CODE",
       "type": "VARCHAR2(2 CHAR)",
-      "description": "This field identifies the level of the student for the effective term.",
-      "definition_table": ""
+      "description": "This field identifies the level code of the student for the effective term.",
+      "definition_table": "STVLEVL"
     },
     {
       "name": "SGBSTDN_STYP_CODE",
       "type": "VARCHAR2(1 CHAR)",
       "description": "This field identifies the student type for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVSTYP"
     },
     {
       "name": "SGBSTDN_TERM_CODE_MATRIC",
       "type": "VARCHAR2(6 CHAR)",
-      "description": "This field identifies the effective term of matriculation.",
+      "description": "This field identifies the effective term of matriculation. Almost always null here.",
       "definition_table": ""
     },
     {
@@ -49,19 +61,19 @@
     {
       "name": "SGBSTDN_EXP_GRAD_DATE",
       "type": "DATE",
-      "description": "This field identifies expected graduation date.",
+      "description": "This field identifies expected graduation date. Can change based on type/pacing.",
       "definition_table": ""
     },
     {
       "name": "SGBSTDN_CAMP_CODE",
       "type": "VARCHAR2(3 CHAR)",
-      "description": "This field identifies the campus location associated with the student for the effective term.",
-      "definition_table": ""
+      "description": "This field SHOULD identify the campus location associated with the student for the effective term. However, it is almost always null here. ",
+      "definition_table": "STVCAMP"
     },
     {
       "name": "SGBSTDN_FULL_PART_IND",
       "type": "VARCHAR2(1 CHAR)",
-      "description": "This field identifies whether the student is a full or part-time student.",
+      "description": "This field identifies whether the student is a full or part-time student. Almost always null here. My recommendation is to do calculations based on a sum of SFRSTCR_CREDIT_HR, or use SFBETRM_TMST_CODE, defined in STVTMST.",
       "definition_table": ""
     },
     {
@@ -80,7 +92,7 @@
       "name": "SGBSTDN_COLL_CODE_1",
       "type": "VARCHAR2(2 CHAR)",
       "description": "This field identifies the college associated with the primary curriculum for the effective term..",
-      "definition_table": ""
+      "definition_table": "STVCOLL"
     },
     {
       "name": "SGBSTDN_DEGC_CODE_1",
@@ -92,43 +104,43 @@
       "name": "SGBSTDN_MAJR_CODE_1",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the primary major within the primary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_MINR_1",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the primary minor within the primary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_MINR_1_2",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the secondary minor of the student for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_CONC_1",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the primary concentration within the primary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_CONC_1_2",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the secondary concentration within the primary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_CONC_1_3",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the third concentration within the primary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_COLL_CODE_2",
       "type": "VARCHAR2(2 CHAR)",
       "description": "This field identifies the college within the secondary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVCOLL"
     },
     {
       "name": "SGBSTDN_DEGC_CODE_2",
@@ -140,31 +152,31 @@
       "name": "SGBSTDN_MAJR_CODE_2",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the primary major within the secondary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_MINR_2",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the primary minor within the secondary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_MINR_2_2",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the secondary minor within the secondary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_CONC_2",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the primary concentration within the secondary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_CONC_2_2",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the secondary concentration within the secondary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_CONC_2_3",
@@ -236,7 +248,7 @@
       "name": "SGBSTDN_RATE_CODE",
       "type": "VARCHAR2(5 CHAR)",
       "description": "This field identifies a specific assessment rate of the student for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVRATE"
     },
     {
       "name": "SGBSTDN_ACTIVITY_DATE",
@@ -248,13 +260,13 @@
       "name": "SGBSTDN_MAJR_CODE_1_2",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the secondary major within the primary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_2_2",
       "type": "VARCHAR2(4 CHAR)",
       "description": "This field identifies the secondary major within the secondary curriculum for the effective term.",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_EDLV_CODE",
@@ -308,13 +320,13 @@
       "name": "SGBSTDN_BLCK_CODE",
       "type": "VARCHAR2(10 CHAR)",
       "description": "Block Schedule Code",
-      "definition_table": ""
+      "definition_table": "STVBLCK"
     },
     {
       "name": "SGBSTDN_TERM_CODE_GRAD",
       "type": "VARCHAR2(6 CHAR)",
       "description": "Term student intends to graduate.",
-      "definition_table": ""
+      "definition_table": "STVTERM"
     },
     {
       "name": "SGBSTDN_ACYR_CODE",
@@ -331,8 +343,8 @@
     {
       "name": "SGBSTDN_SITE_CODE",
       "type": "VARCHAR2(3 CHAR)",
-      "description": "Site Code.",
-      "definition_table": ""
+      "description": "Site Code. 01, 02, 03 are most common (Tahlequah, Muskogee, BA). Def table has addresses!",
+      "definition_table": "STVSITE"
     },
     {
       "name": "SGBSTDN_DEPT_CODE_2",
@@ -374,7 +386,7 @@
       "name": "SGBSTDN_MAJR_CODE_DUAL",
       "type": "VARCHAR2(4 CHAR)",
       "description": "",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_BSKL_CODE",
@@ -410,19 +422,19 @@
       "name": "SGBSTDN_MAJR_CODE_CONC_121",
       "type": "VARCHAR2(4 CHAR)",
       "description": "Concentration Code 1 on Second Major of First Curriculum",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_CONC_122",
       "type": "VARCHAR2(4 CHAR)",
       "description": "Concentration Code 2 on Second Major on First Curriculum",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_CONC_123",
       "type": "VARCHAR2(4 CHAR)",
       "description": "Concentration Code 3 on Second Major on First Curriculum",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_SECD_ROLL_IND",
@@ -458,13 +470,13 @@
       "name": "SGBSTDN_LEVL_CODE_2",
       "type": "VARCHAR2(2 CHAR)",
       "description": "Curriculum 2 Level Code",
-      "definition_table": ""
+      "definition_table": "STVLEVL"
     },
     {
       "name": "SGBSTDN_CAMP_CODE_2",
       "type": "VARCHAR2(3 CHAR)",
       "description": "Curriculum 2 Campus Code",
-      "definition_table": ""
+      "definition_table": "STVCAMP"
     },
     {
       "name": "SGBSTDN_DEPT_CODE_2_2",
@@ -476,19 +488,19 @@
       "name": "SGBSTDN_MAJR_CODE_CONC_221",
       "type": "VARCHAR2(4 CHAR)",
       "description": "Concentration 1 on Second Major of Second Curriculum",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_CONC_222",
       "type": "VARCHAR2(4 CHAR)",
       "description": "Concentration 2 on Second Major of Second Curriculum",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_MAJR_CODE_CONC_223",
       "type": "VARCHAR2(4 CHAR)",
       "description": "Concentration 3 on Second Major of Second Curriculum",
-      "definition_table": ""
+      "definition_table": "STVMAJR"
     },
     {
       "name": "SGBSTDN_CURR_RULE_1",
