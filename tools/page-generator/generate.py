@@ -313,6 +313,23 @@ def main():
     ))
     print(f"  Updated {DATA_INDEX.relative_to(ROOT)}")
 
+    # Generate tags.md for the tags plugin
+    TAGS_MD = DOCS_DIR / "tags.md"
+    TAGS_MD.write_text("""---
+hide:
+  - navigation
+  - toc
+---
+
+# Tags
+
+Browse tables by tag.
+
+<!-- This page is auto-populated by the tags plugin -->
+
+[TAGS]
+""")
+    print(f"  Updated {TAGS_MD.relative_to(ROOT)}")
     DEF_INDEX.write_text(generate_type_index(
         def_tables,
         "Definition Tables",
