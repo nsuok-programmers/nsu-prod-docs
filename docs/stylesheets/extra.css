@@ -94,3 +94,17 @@ h2[id^="tag:"] + ul li a:hover {
 h2[id^="tag:"] + ul li a:hover {
   color: inherit;
 } */
+
+/* This targets the "default" (light) color scheme */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #004d25;
+  --md-primary-fg-color--dark:  #00361a;
+  --md-accent-fg-color:         #036331;
+}
+
+/* This targets the "slate" (dark) color scheme */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #004d25;
+  --md-primary-fg-color--dark:  #00361a;
+  --md-accent-fg-color:         #036331;
+}
