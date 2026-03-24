@@ -1,8 +1,8 @@
 {
   "name": "STVTERM",
   "description": "Term Code Validation Table",
-  "type": "data",
-  "tags": [],
+  "type": "definition",
+  "tags": ["term"],
   "queries": [],
   "columns": [
     {
