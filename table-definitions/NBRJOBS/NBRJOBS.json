@@ -1,0 +1,452 @@
+{
+  "name": "NBRJOBS",
+  "description": "Assignment[Job] Repeating Table",
+  "type": "data",
+  "tags": ["employee", "jobs", "hr"],
+  "queries": [
+    {
+      "file": "most_recent_active_job.sql",
+      "name": "Most Recent Active Job by PIDM",
+      "description": "Find employee's most recent Active, PRIMARY job record in NBRJOBS"
+    },
+    {
+      "file": "supervisor_by_orgn.sql",
+      "name": "Job Supervisor by ORGN",
+      "description": "Find an ORGN code's supervisor in FTVORGN"
+    }
+  ],
+  "columns": [
+    {
+      "name": "NBRJOBS_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "Internal identification number of the employee.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_POSN",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "Position Number.",
+      "definition_table": "NBBPOSN"
+    },
+    {
+      "name": "NBRJOBS_SUFF",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "SUFFIX: Suffix of the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_EFFECTIVE_DATE",
+      "type": "DATE",
+      "description": "EFFECTIVE DATE: Date that the Job Assignment record becomes effective.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_STATUS",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "STATUS: Status of the job. Valid values are A = Active, B = Leave without pay with benefits, L = Leave without pay without benefits, F = Leave with full pay and benefits, P = Leave with partial pay and benefits, T = Terminated.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_DESC",
+      "type": "VARCHAR2(120 BYTE)",
+      "description": "DESCRIPTION: Description of the job. Defaults from the Position Title if left blank.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_ECLS_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "EMPLOYEE CLASSIFICATION CODE: The employee class on this job. This can tell you whether someone is part time, full time, faculty, retired(90,92), etc.",
+      "definition_table": "PTRECLS"
+    },
+    {
+      "name": "NBRJOBS_PICT_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "PAY ID CODE: The Pay ID attached to the job. Common values are MN (Monthly) and BW (Biweekly)",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_COAS_CODE_TS",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "TIME SHEET CHART OF ACCOUNTS CODE: I've only ever seen this be A.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_ORGN_CODE_TS",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "TIME SHEET ORGANIZATION: Organization where time sheet is sent for this job.",
+      "definition_table": "FTVORGN"
+    },
+    {
+      "name": "NBRJOBS_SAL_TABLE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "SALARY TABLE: The Salary Table attached to the job. Defaults from the Salary/Rate Rule Form (NTRSALA) via the Position Form (NBAPOSN).",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SAL_GRADE",
+      "type": "VARCHAR2(5 CHAR)",
+      "description": "SALARY GRADE: The Salary Grade attached to the job. Defaults from the Salary/Rate Rule Form (NTRSALA) via the Position Form (NBAPOSN).",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SAL_STEP",
+      "type": "NUMBER(3,0)",
+      "description": "SALARY STEP: The Salary Step attached to the job. Defaults from the Salary/Rate Rule Form (NTRSALA) or can be entered online.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_APPT_PCT",
+      "type": "NUMBER(5,2)",
+      "description": "APPOINTMENT PERCENTAGE: The Appointment percent attached to the Job. Used to establish the percentage of full time appointment for an employee in a position. The value defaults from the position record, but the user may change at the job level. The appointment percent cannot exceed 100.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_FTE",
+      "type": "NUMBER(6,3)",
+      "description": "FULL TIME EQUIVALENCY: The full time percentage attached to the job. Defaults to 1.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_HRS_DAY",
+      "type": "NUMBER(6,2)",
+      "description": "HOURS PER DAY: The hours attached to the job that are normally worked in a day.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_HRS_PAY",
+      "type": "NUMBER(6,2)",
+      "description": "HOURS PER PAY: The hours attached to the job that are normally worked in a pay period.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SHIFT",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "SHIFT: The shift attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_REG_RATE",
+      "type": "NUMBER(11,6)",
+      "description": "REGULAR RATE: The regular rate attached to the job. If this field is entered or defaulted from the Salary/Rate Rule Form, the Assign Salary is system calculated and vice versa.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_ASSGN_SALARY",
+      "type": "NUMBER(11,2)",
+      "description": "ASSIGNMENT SALARY: The salary to be paid each pay period. If the Assignment Salary is entered, the Annual Salary is calculated based on the factor and vice versa.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_FACTOR",
+      "type": "NUMBER(3,1)",
+      "description": "FACTOR: The number of pays per calendar year.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_ANN_SALARY",
+      "type": "NUMBER(11,2)",
+      "description": "ANNUAL SALARY: The annual salary attached to the job based on the calendar year. If the Annual Salary is entered, the Assignment Salary is system calculated based the factor and vice versa.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PER_PAY_SALARY",
+      "type": "NUMBER(11,2)",
+      "description": "PER PAY SALARY: Used for deferred pay calculations.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PAYS",
+      "type": "NUMBER(3,1)",
+      "description": "PAYS: Basically pay periods in a year. 12, 26, etc.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PER_PAY_DEFER_AMT",
+      "type": "NUMBER(11,2)",
+      "description": "PER PAY DEFERRED AMOUNT: The amount deferred each pay period for deferred pay calculation.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "Date of last activity (insert or update) on the record.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_JCRE_CODE",
+      "type": "VARCHAR2(5 CHAR)",
+      "description": "CHANGE REASON CODE: Reason for the job change. A common one is TERM, termination/end of employment.",
+      "definition_table": "PTRJCRE"
+    },
+    {
+      "name": "NBRJOBS_SGRP_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "SALARY GROUP CODE: The Salary Group Code attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_EMPR_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "EMPLOYER CODE: The Employer Identification code attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_LGCD_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "LONGEVITY CODE: Longevity code attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_LOCN_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "LOCATION CODE: EEO location attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SCHL_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "SCHOOL CODE: EEO school attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SUPERVISOR_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "SUPERVISOR PIDM: ID of Supervisor. Almost always empty in our instance. See below queries for a way to pull Supervisor",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SUPERVISOR_POSN",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "SUPERVISOR POSN: The position number of the supervisor attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SUPERVISOR_SUFF",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "SUPERVISOR SUFFIX: Suffix attached to the supervisor's position.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_WKCP_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "WORKER COMPENSATION CODE: Workers' Compensation Classification Code attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_JBLN_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "JOB LOCATION CODE: Job Location Code attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PERS_CHG_DATE",
+      "type": "DATE",
+      "description": "PERSONNEL CHANGE DATE: Date the change was actually made as opposed to the effective date which is for payroll purposes.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PCAT_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "PREMIUM PAY CODE: Generates premium pay attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_DFPR_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "DEFER PAY CODE: The defer pay schedule attached to the job. Defaults from PTRDFPR.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_ENCUMBRANCE_HRS",
+      "type": "NUMBER(6,2)",
+      "description": "ENCUMBRANCE HOURS: Hours used to calculate the encumbrance amount for this job in the active fiscal year.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_CONTRACT_NO",
+      "type": "VARCHAR2(8 CHAR)",
+      "description": "JOB CONTRACT NUMBER: Job contract number attached to the job.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_STRS_ASSN_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "STRS ASSIGNMENT CODE: STRS Assignment Code attached to the job. Valid values are STRS mandated.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_STRS_PAY_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "STRS PAY CODE: STRS Pay Code for the employee attached to the job. The value selected determines how the employee's salary will be reported to STRS administration on the monthly F-496 report.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PERS_PAY_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "PERS PAY CODE: PERS Pay Code for the employee attached to the job. The value selected determines how the employee's salary will be reported to PERS administration on the PERS Monthly Contribution Report.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_TIME_ENTRY_METHOD",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "TIME ENTRY METHOD: Time Entry Method attached to the job. Valid values are P = Payroll, W = Web, D = Departmental, T = Third Party.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_TIME_ENTRY_TYPE",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "TIME ENTRY TYPE: Time Entry Type attached to the job. It represents the structure of how time will be entered over the Web or on the Electronic Approvals of Time Entry Form (PHATIME). Valid values areT = Time Sheet, E = Exception Time Only, N = None.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_TIME_IN_OUT_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "TIME IN AND OUT INDICATOR: Time In/Out Indicator attached to the job. Valiod values are Y = Yes and N = No. If Y, this employee must enter time in and out information on the Web or have it entered by a department administrator on the Electronic Approvals of Time Entry Form (PHATIME). Time In and out must be entered for all earn codes that require hours entry. Time in and out will not be entered for earn codes that require units entry.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_LCAT_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "LEAVE CATEGORY CODE: A code which identifies a group of leave types. It is used when the Leave by Job Method has been selected for leave processing.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_LEAV_REPT_METHOD",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "LEAVE REPORT ENTRY METHOD: Leave Report Method Attached to the job. Valid values are P = None, W = Leave Report on the Web, D = Departmental Leave Report, T = Third Party Leave Report.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PICT_CODE_LEAV_REPT",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "LEAVE REPORT PAY ID: The Leave Report Pay ID attached to the job and associated with a leave report or leave request.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "USER ID: The Oracle ID of the user who changed the record.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "DATA ORIGIN: Source system that created or updated the row.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "GUID: Global Unique Identifier to uniquely identify the record of a resource for integration.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SUPERVISOR_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "SUPERVISOR GUID: Global Unique Identifier to uniquely identify the record of a resource for integration.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PERS_APPT_ID",
+      "type": "VARCHAR2(10 BYTE)",
+      "description": "CALPERS APPOINTMENT ID: 10-digit CalPERS ID for this employee which indicates their association with this employer by CalPERS Member Category.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PERS_PAY_RATE_OVER",
+      "type": "NUMBER(8,2)",
+      "description": "CALPERS PAY RATE: Pay rate reported to CalPERS where the derived pay rate must be changed for proper reporting.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PERS_PAY_RATE_TYPE",
+      "type": "VARCHAR2(3 BYTE)",
+      "description": "CALPERS PAY RATE TYPE: CalPERS Pay Rate Type identifies hourly, daily or monthly pay. HRY-Hourly, DLY-Daily, MTY-Monthly.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PERS_SCHED_DAYS",
+      "type": "NUMBER(7,2)",
+      "description": "CALPERS SCHEDULED DAYS: Number of days per week considered full time if the Pay Rate Type is Daily.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PERS_SCHED_HRS_WEEK",
+      "type": "NUMBER(6,2)",
+      "description": "CALPERS SCHEDULED HOURS PER WEEK: Number of hours per week considered full time if the Pay Rate Type is not Daily.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_PERS_SPECIAL_ONLY_IND",
+      "type": "VARCHAR2(1 BYTE)",
+      "description": "PERS SPECIAL COMPENSATION ONLY: Indicates this job only includes special compensation earnings and no regular earnings. Special compensation will be reported under the matching/primary PERS XML payroll record.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SCLS_BASE_HRS",
+      "type": "NUMBER(6,2)",
+      "description": "CLASSIFICATION BASE HOURS: Minimum base hours associated to a classification code.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_SCLS_CODE",
+      "type": "VARCHAR2(2 BYTE)",
+      "description": "CALSTRS CLASSIFICATION CODE: Code identifies classification used in CalSTRS monthly and supplemental reports of retirement contributions.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_STIN_CODE",
+      "type": "VARCHAR2(1 BYTE)",
+      "description": "CALSTRS AB1586 CODE: Code indicates whether an employee has been marked in CalSTRS system as eligible for recalculation of benefits.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_CSST_CODE",
+      "type": "VARCHAR2(4 BYTE)",
+      "description": "CALSTRS SERVICE TYPE CODE: California State Teachers Retirement System Service Type Code. Required for CalSTRS Defined Benefit Reporting for both members (DB1) and non-members (DB2).",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_CSTB_CODE",
+      "type": "VARCHAR2(4 BYTE)",
+      "description": "CALSTRS TIME BASE CODE: California State Teachers Retirement System Time Base Code. Basis of employment associated with the contribution line.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_CSPP_CODE",
+      "type": "VARCHAR2(4 BYTE)",
+      "description": "CALSTRS EXPECTED PAY PERIODS CODE: Four digit California State Teachers Retirement System Expected Pay Periods Code used in Defined Benefit Reporting for Defined Benefit Members (DB1) or Defined Benefit Non-members (DB2).",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_STRS_FT_BASE_HRS",
+      "type": "NUMBER(6,2)",
+      "description": "CALSTRS FULL TIME BASE HOURS: The number of hours required in a school term for full-time. Required for reporting California State Teachers Retirement System Defined Benefit Non-member (DB2) employees performing creditable service.",
+      "definition_table": ""
+    },
+    {
+      "name": "NBRJOBS_STRS_HRS_DAY",
+      "type": "NUMBER(4,2)",
+      "description": "CALSTRS WORK HOURS PER DAY: The number of hours required per day in a complete workday for full-time.",
+      "definition_table": ""
+    }
+  ]
+}
