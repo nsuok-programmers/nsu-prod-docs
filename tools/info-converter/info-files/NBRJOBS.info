@@ -1,0 +1,225 @@
+TABLE: NBRJOBS 
+	 LAST ANALYZED:2026-03-01 
+	 ROWS         :112503 
+	 SAMPLE SIZE  :112503 
+	 INMEMORY     :DISABLED 
+	 COMMENTS     :Assignment Repeating Table 
+
+Columns 
+NAME                            DATA TYPE            NULL  DEFAULT    COMMENTS
+*NBRJOBS_EFFECTIVE_DATE         DATE                 No               EFFECTIVE DATE: Date that the Job Assignment
+                                                                      record becomes effective.
+*NBRJOBS_PIDM                   NUMBER(8,0)          No               PIDM: Internal identification number of the
+                                                                      employee.
+*NBRJOBS_POSN                   VARCHAR2(6 CHAR)     No               POSITION: Position Number.
+*NBRJOBS_SUFF                   VARCHAR2(2 CHAR)     No               SUFFIX: Suffix of the job.
+ NBRJOBS_STATUS                 VARCHAR2(1 CHAR)     No               STATUS: Status of the job. Valid values are A =
+                                                                      Active, B = Leave without pay with benefits, L =
+                                                                      Leave without pay without benefits, F = Leave
+                                                                      with full pay and benefits, P = Leave with
+                                                                      partial pay and benefits, T = Terminated.
+ NBRJOBS_DESC                   VARCHAR2(120 BYTE)   Yes              DESCRIPTION: Description of the job.  Defaults
+                                                                      from the Position Title if left blank.
+ NBRJOBS_ECLS_CODE              VARCHAR2(2 CHAR)     No               EMPLOYEE CLASSIFICATION CODE: The employee class
+                                                                      attached to the job, based on the Employee Class
+                                                                      entered on the Position Form (NBAPOSN).
+ NBRJOBS_PICT_CODE              VARCHAR2(2 CHAR)     No               PAY ID CODE: The Pay ID attached to the job.
+ NBRJOBS_COAS_CODE_TS           VARCHAR2(1 CHAR)     Yes              TIME SHEET CHART OF ACCOUNTS CODE:  Valued only if
+                                                                      Banner Finance is installed.
+ NBRJOBS_ORGN_CODE_TS           VARCHAR2(6 CHAR)     No               TIME SHEET ORGANIZATION: Organization where time
+                                                                      sheet is sent for this job.
+ NBRJOBS_SAL_TABLE              VARCHAR2(2 CHAR)     Yes              SALARY TABLE: The Salary Table attached to the
+                                                                      job. Defaults from the Salary/Rate Rule Form
+                                                                      (NTRSALA) via the Position Form (NBAPOSN).
+ NBRJOBS_SAL_GRADE              VARCHAR2(5 CHAR)     Yes              SALARY GRADE: The Salary Grade attached to the
+                                                                      job. Defaults from the Salary/Rate Rule Form
+                                                                      (NTRSALA) via the Position Form (NBAPOSN).
+ NBRJOBS_SAL_STEP               NUMBER(3,0)          Yes              SALARY STEP: The Salary Step attached to the job.
+                                                                      Defaults from the Salary/Rate Rule Form (NTRSALA)
+                                                                      or can be entered online.
+ NBRJOBS_APPT_PCT               NUMBER(5,2)          No               APPOINTMENT PERCENTAGE: The Appointment percent
+                                                                      attached to the Job. Used to establish the
+                                                                      percentage of full time appointment for an
+                                                                      employee in a position. The value defaults from
+                                                                      the position record, but the user may change at
+                                                                      the job level.  The appointment percent cannot
+                                                                      exceed 100.
+ NBRJOBS_FTE                    NUMBER(6,3)          Yes              FULL TIME EQUIVALENCY: The full time percentage
+                                                                      attached to the job. Defaults to 1.
+ NBRJOBS_HRS_DAY                NUMBER(6,2)          No               HOURS PER DAY: The hours attached to the job that
+                                                                      are normally worked in a day.
+ NBRJOBS_HRS_PAY                NUMBER(6,2)          No               HOURS PER PAY: The hours attached to the job that
+                                                                      are normally worked in a pay period.
+ NBRJOBS_SHIFT                  VARCHAR2(1 CHAR)     No               SHIFT: The shift attached to the job.
+ NBRJOBS_REG_RATE               NUMBER(11,6)         Yes              REGULAR RATE: The regular rate attached to the
+                                                                      job.  If this field is entered or defaulted from
+                                                                      the Salary/Rate Rule Form, the Assign Salary is
+                                                                      system calculated and vice versa.
+ NBRJOBS_ASSGN_SALARY           NUMBER(11,2)         No               ASSIGNMENT SALARY: The salary to be paid each pay
+                                                                      period. If the Assignment Salary is entered, the
+                                                                      Annual Salary is calculated based on the factor
+                                                                      and vice versa.
+ NBRJOBS_FACTOR                 NUMBER(3,1)          No               FACTOR: The number of pays per calendar year.
+ NBRJOBS_ANN_SALARY             NUMBER(11,2)         No               ANNUAL SALARY: The annual salary attached to the
+                                                                      job based on the calendar year.  If the Annual
+                                                                      Salary is entered, the Assignment Salary is
+                                                                      system calculated based the factor and vice
+                                                                      versa.
+ NBRJOBS_PER_PAY_SALARY         NUMBER(11,2)         No               PER PAY SALARY: Used for deferred pay
+                                                                      calculations.
+ NBRJOBS_PAYS                   NUMBER(3,1)          No               PAYS: Used for deferred pay calculations.
+ NBRJOBS_PER_PAY_DEFER_AMT      NUMBER(11,2)         No               PER PAY DEFERRED AMOUNT: The amount deferred each
+                                                                      pay period for deferred pay calculation.
+ NBRJOBS_ACTIVITY_DATE          DATE                 No               Date of last activity (insert or update) on the
+                                                                      record.
+ NBRJOBS_JCRE_CODE              VARCHAR2(5 CHAR)     Yes              CHANGE REASON CODE: Associates the reason for the
+                                                                      change with the job detail record.
+ NBRJOBS_SGRP_CODE              VARCHAR2(6 CHAR)     No               SALARY GROUP CODE: The Salary Group Code attached
+                                                                      to the job.
+ NBRJOBS_EMPR_CODE              VARCHAR2(4 CHAR)     Yes              EMPLOYER CODE: The Employer Identification code
+                                                                      attached to the job.
+ NBRJOBS_LGCD_CODE              VARCHAR2(4 CHAR)     Yes              LONGEVITY CODE: Longevity code attached to the
+                                                                      job.
+ NBRJOBS_LOCN_CODE              VARCHAR2(6 CHAR)     Yes              LOCATION CODE: EEO location attached to the job.
+ NBRJOBS_SCHL_CODE              VARCHAR2(6 CHAR)     Yes              SCHOOL CODE: EEO school attached to the job.
+ NBRJOBS_SUPERVISOR_PIDM        NUMBER(8,0)          Yes              SUPERVISOR PIDM: Internal identification number of
+                                                                      the supervisor attached to the job.
+ NBRJOBS_SUPERVISOR_POSN        VARCHAR2(6 CHAR)     Yes              SUPERVISOR POSN: The position number of the
+                                                                      supervisor attached to the job.
+ NBRJOBS_SUPERVISOR_SUFF        VARCHAR2(2 CHAR)     Yes              SUPERVISOR SUFFIX: Suffix attached to the
+                                                                      supervisor's position.
+ NBRJOBS_WKCP_CODE              VARCHAR2(4 CHAR)     Yes              WORKER COMPENSATION CODE: Workers' Compensation
+                                                                      Classification Code attached to the job.
+ NBRJOBS_JBLN_CODE              VARCHAR2(6 CHAR)     Yes              JOB LOCATION CODE: Job Location Code attached to
+                                                                      the job.
+ NBRJOBS_PERS_CHG_DATE          DATE                 No               PERSONNEL CHANGE DATE: Date the change was
+                                                                      actually made as opposed to the effective date
+                                                                      which is for payroll purposes.
+ NBRJOBS_PCAT_CODE              VARCHAR2(4 CHAR)     Yes              PREMIUM PAY CODE: Generates premium pay attached
+                                                                      to the job.
+ NBRJOBS_DFPR_CODE              VARCHAR2(4 CHAR)     Yes              DEFER PAY CODE: The defer pay schedule attached to
+                                                                      the job. Defaults from PTRDFPR.
+ NBRJOBS_ENCUMBRANCE_HRS        NUMBER(6,2)          Yes              ENCUMBRANCE HOURS: Hours used to calculate the
+                                                                      encumbrance amount for this job in the active
+                                                                      fiscal year.
+ NBRJOBS_CONTRACT_NO            VARCHAR2(8 CHAR)     Yes              JOB CONTRACT NUMBER: Job contract number attached
+                                                                      to the job.
+ NBRJOBS_STRS_ASSN_CODE         VARCHAR2(2 CHAR)     Yes              STRS ASSIGNMENT CODE: STRS Assignment Code
+                                                                      attached to the job. Valid values are STRS
+                                                                      mandated.
+ NBRJOBS_STRS_PAY_CODE          VARCHAR2(2 CHAR)     Yes              STRS PAY CODE: STRS Pay Code for the employee
+                                                                      attached to the job. The value selected
+                                                                      determines how the employee's salary will be
+                                                                      reported to STRS administration on the monthly
+                                                                      F-496 report.
+ NBRJOBS_PERS_PAY_CODE          VARCHAR2(2 CHAR)     Yes              PERS PAY CODE: PERS Pay Code for the employee
+                                                                      attached to the job. The value selected
+                                                                      determines how the employee's salary will be
+                                                                      reported to PERS administration on the PERS
+                                                                      Monthly Contribution Report.
+ NBRJOBS_TIME_ENTRY_METHOD      VARCHAR2(1 CHAR)     No               TIME ENTRY METHOD: Time Entry Method attached to
+                                                                      the job. Valid values are P = Payroll, W = Web, D
+                                                                      = Departmental, T = Third Party.
+ NBRJOBS_TIME_ENTRY_TYPE        VARCHAR2(1 CHAR)     No               TIME ENTRY TYPE: Time Entry Type attached to the
+                                                                      job. It represents the structure of how time will
+                                                                      be entered over the Web or on the Electronic
+                                                                      Approvals of Time Entry Form (PHATIME). Valid
+                                                                      values areT = Time Sheet, E = Exception Time
+                                                                      Only, N = None.
+ NBRJOBS_TIME_IN_OUT_IND        VARCHAR2(1 CHAR)     No               TIME IN AND OUT INDICATOR: Time In/Out Indicator
+                                                                      attached to the job. Valiod values are Y = Yes
+                                                                      and N = No. If Y, this employee must enter time
+                                                                      in and out information on the Web or have it
+                                                                      entered by a department administrator on the
+                                                                      Electronic Approvals of Time Entry Form
+                                                                      (PHATIME).  Time In and out must be entered for
+                                                                      all earn codes that require hours entry. Time in
+                                                                      and out will not be entered for earn codes that
+                                                                      require units entry.
+ NBRJOBS_LCAT_CODE              VARCHAR2(2 CHAR)     Yes              LEAVE CATEGORY CODE: A code which identifies a
+                                                                      group of leave types. It is used when the Leave
+                                                                      by Job Method has been selected for leave
+                                                                      processing.
+ NBRJOBS_LEAV_REPT_METHOD       VARCHAR2(1 CHAR)     No               LEAVE REPORT ENTRY METHOD: Leave Report Method
+                                                                      Attached to the job. Valid values are P = None, W
+                                                                      = Leave Report on the Web, D = Departmental Leave
+                                                                      Report, T = Third Party Leave Report.
+ NBRJOBS_PICT_CODE_LEAV_REPT    VARCHAR2(2 CHAR)     No               LEAVE REPORT PAY ID: The Leave Report Pay ID
+                                                                      attached to the job and associated with a leave
+                                                                      report or leave request.
+ NBRJOBS_USER_ID                VARCHAR2(30 CHAR)    Yes              USER ID: The Oracle ID of the user who changed the
+                                                                      record.
+ NBRJOBS_DATA_ORIGIN            VARCHAR2(30 CHAR)    Yes              DATA ORIGIN: Source system that created or updated
+                                                                      the row.
+ NBRJOBS_SURROGATE_ID           NUMBER(19,0)         No               SURROGATE ID: Immutable unique key
+ NBRJOBS_VERSION                NUMBER(19,0)         No               VERSION: Optimistic lock token.
+ NBRJOBS_VPDI_CODE              VARCHAR2(6 CHAR)     Yes              VPDI CODE: Multi-entity processing code.
+ NBRJOBS_GUID                   VARCHAR2(36 BYTE)    Yes              GUID:  Global Unique Identifier to uniquely
+                                                                      identify the record of a resource for
+                                                                      integration.
+ NBRJOBS_SUPERVISOR_GUID        VARCHAR2(36 BYTE)    Yes              SUPERVISOR GUID:  Global Unique Identifier to
+                                                                      uniquely identify the record of a resource for
+                                                                      integration.
+ NBRJOBS_PERS_APPT_ID           VARCHAR2(10 BYTE)    Yes              CALPERS APPOINTMENT ID: 10-digit CalPERS ID for
+                                                                      this employee which indicates their association
+                                                                      with this employer by CalPERS Member Category.
+ NBRJOBS_PERS_PAY_RATE_OVER     NUMBER(8,2)          Yes              CALPERS PAY RATE: Pay rate reported to CalPERS
+                                                                      where the derived pay rate must be changed for
+                                                                      proper reporting.
+ NBRJOBS_PERS_PAY_RATE_TYPE     VARCHAR2(3 BYTE)     Yes              CALPERS PAY RATE TYPE: CalPERS Pay Rate Type
+                                                                      identifies hourly, daily or monthly pay.
+                                                                      HRY-Hourly, DLY-Daily, MTY-Monthly.
+ NBRJOBS_PERS_SCHED_DAYS        NUMBER(7,2)          Yes              CALPERS SCHEDULED DAYS: Number of days per week
+                                                                      considered full time if the Pay Rate Type is
+                                                                      Daily.
+ NBRJOBS_PERS_SCHED_HRS_WEEK    NUMBER(6,2)          Yes              CALPERS SCHEDULED HOURS PER WEEK: Number of hours
+                                                                      per week considered full time if the Pay Rate
+                                                                      Type is not Daily.
+ NBRJOBS_PERS_SPECIAL_ONLY_IND  VARCHAR2(1 BYTE)     Yes              PERS SPECIAL COMPENSATION ONLY: Indicates this job
+                                                                      only includes special compensation earnings and no
+                                                                      regular earnings. Special compensation will be
+                                                                      reported under the matching/primary PERS XML
+                                                                      payroll record.
+ NBRJOBS_SCLS_BASE_HRS          NUMBER(6,2)          Yes              CLASSIFICATION BASE HOURS: Minimum base hours
+                                                                      associated to a classification code.
+ NBRJOBS_SCLS_CODE              VARCHAR2(2 BYTE)     Yes              CALSTRS CLASSIFICATION CODE: Code identifies
+                                                                      classification used in CalSTRS monthly and
+                                                                      supplemental reports of retirement contributions.
+ NBRJOBS_STIN_CODE              VARCHAR2(1 BYTE)     Yes              CALSTRS AB1586 CODE: Code indicates whether an
+                                                                      employee has been marked in CalSTRS system as
+                                                                      eligible for recalculation of benefits.
+ NBRJOBS_CSST_CODE              VARCHAR2(4 BYTE)     Yes              CALSTRS SERVICE TYPE CODE: California State
+                                                                      Teachers Retirement System Service Type Code.
+                                                                      Required for CalSTRS Defined Benefit Reporting
+                                                                      for both members (DB1) and non-members (DB2).
+ NBRJOBS_CSTB_CODE              VARCHAR2(4 BYTE)     Yes              CALSTRS TIME BASE CODE: California State Teachers
+                                                                      Retirement System Time Base Code. Basis of
+                                                                      employment associated with the contribution line.
+ NBRJOBS_CSPP_CODE              VARCHAR2(4 BYTE)     Yes              CALSTRS EXPECTED PAY PERIODS CODE: Four digit
+                                                                      California State Teachers Retirement System
+                                                                      Expected Pay Periods Code used in Defined Benefit
+                                                                      Reporting for Defined Benefit Members (DB1) or
+                                                                      Defined Benefit Non-members (DB2).
+ NBRJOBS_STRS_FT_BASE_HRS       NUMBER(6,2)          Yes              CALSTRS FULL TIME BASE HOURS: The number of hours
+                                                                      required in a school term for full-time. Required
+                                                                      for reporting California State Teachers Retirement
+                                                                      System Defined Benefit Non-member (DB2) employees
+                                                                      performing creditable service.
+ NBRJOBS_STRS_HRS_DAY           NUMBER(4,2)          Yes              CALSTRS WORK HOURS PER DAY: The number of hours
+                                                                      required per day in a complete workday for
+                                                                      full-time.
+
+Indexes
+INDEX_NAME                         UNIQUENESS    STATUS    FUNCIDX_STATUS    COLUMNS                                                                                
+POSNCTL.PK_NBRJOBS                 UNIQUE        VALID                       NBRJOBS_PIDM, NBRJOBS_POSN, NBRJOBS_SUFF, NBRJOBS_EFFECTIVE_DATE                       
+POSNCTL.NBRJOBS_KEY2_INDEX         NONUNIQUE     VALID                       NBRJOBS_POSN, NBRJOBS_SUFF, NBRJOBS_PIDM, NBRJOBS_EFFECTIVE_DATE                       
+POSNCTL.NBRJOBS_KEY3_INDEX         NONUNIQUE     VALID                       NBRJOBS_PICT_CODE, NBRJOBS_PIDM, NBRJOBS_POSN, NBRJOBS_SUFF, NBRJOBS_EFFECTIVE_DATE    
+POSNCTL.NBRJOBS_KEY4_INDEX         NONUNIQUE     VALID                       NBRJOBS_EMPR_CODE, NBRJOBS_POSN, NBRJOBS_ECLS_CODE                                     
+POSNCTL.NBRJOBS_KEY5_INDEX         NONUNIQUE     VALID                       NBRJOBS_ORGN_CODE_TS, NBRJOBS_COAS_CODE_TS, NBRJOBS_PICT_CODE, NBRJOBS_PIDM            
+POSNCTL.NBRJOBS_KEY6_INDEX         NONUNIQUE     VALID                       NBRJOBS_PICT_CODE_LEAV_REPT, NBRJOBS_PIDM, NBRJOBS_EFFECTIVE_DATE                      
+POSNCTL.NBRJOBS_KEY7_INDEX         NONUNIQUE     VALID                       NBRJOBS_SUPERVISOR_PIDM                                                                
+POSNCTL.NBRJOBS_GUID_INDEX1        NONUNIQUE     VALID                       NBRJOBS_GUID                                                                           
+POSNCTL.NBRJOBS_GUID_INDEX2        NONUNIQUE     VALID                       NBRJOBS_SUPERVISOR_GUID                                                                
+POSNCTL.UK_NBRJOBS_SURROGATE_ID    UNIQUE        VALID                       NBRJOBS_SURROGATE_ID                                                                   
+
+
