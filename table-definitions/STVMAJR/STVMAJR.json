@@ -16,7 +16,13 @@
     "concentration",
     "academic"
   ],
-  "queries": [],
+  "queries": [
+    {
+      "file": "valid_majors.sql",
+      "name": "Find all valid Majors",
+      "description": "Find all valid Majors"
+    }
+  ],
   "columns": [
     {
       "name": "STVMAJR_CODE",
