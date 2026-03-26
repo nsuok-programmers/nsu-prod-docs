@@ -266,9 +266,11 @@ def update_nav():
 def main():
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Each subfolder in table-definitions/ is a table
+    # Each subfolder in table-definitions/data-tables and table-definitions/definition-tables is a table
     table_dirs = sorted(
-        d for d in DEFS_DIR.iterdir() if d.is_dir()
+        table_dir
+        for type_dir in DEFS_DIR.iterdir() if type_dir.is_dir()
+        for table_dir in type_dir.iterdir() if table_dir.is_dir()
     )
 
     if not table_dirs:
