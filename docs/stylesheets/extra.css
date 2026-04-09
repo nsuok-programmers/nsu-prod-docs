@@ -98,13 +98,25 @@ h2[id^="tag:"] + ul li a:hover {
 /* This targets the "default" (light) color scheme */
 [data-md-color-scheme="default"] {
   --md-primary-fg-color:        #004d25;
-  --md-primary-fg-color--dark:  #00361a;
-  --md-accent-fg-color:         #036331;
+  --md-primary-fg-color--dark:  #004d25;
+  --md-accent-fg-color:         #11c96a;
+  --md-typeset-a-color:         #0a914b;
 }
 
 /* This targets the "slate" (dark) color scheme */
 [data-md-color-scheme="slate"] {
   --md-primary-fg-color:        #004d25;
   --md-primary-fg-color--dark:  #00361a;
-  --md-accent-fg-color:         #036331;
+  --md-accent-fg-color:         #11c96a;
+  --md-typeset-a-color:         #0eba61;
 }
+
+/* Override only links to be lighter */
+/* :root {
+  --md-typeset-a-color: #11e879 !important;
+} */
+/* Hover state */
+/* .md-typeset a:hover {
+  color: rgb(4, 159, 79) !important; 
+  text-decoration: underline;
+} */

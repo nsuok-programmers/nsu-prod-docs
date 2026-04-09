@@ -2,9 +2,27 @@
   "name": "STVTERM",
   "description": "Term Code Validation Table",
   "type": "definition",
+  "definition_headers": [
+    "STVTERM_CODE",
+    "STVTERM_DESC",
+    "STVTERM_START_DATE",
+    "STVTERM_END_DATE",
+    "STVTERM_FA_PROC_YR",
+    "STVTERM_ACTIVITY_DATE"
+  ],
   "tags": ["term"],
-  "queries": [],
+  "queries": [{
+      "file": "current_term.sql",
+      "name": "Find current term (Roll forward)",
+      "description": "Find current term, rolling forward in intercession (The time between terms)"
+    }],
   "columns": [
+    {
+      "name": "STVTERM_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "The term code. This is formatted YYYYTT, TT being Term. Understanding term codes: Term codes contain a year, followed by 20, 30, or 10. 20 - Fall, 30 - Spring, 10 - Summer. Spring is the only term whose calendar year matches the year code. For example, 202630 is Spring 2026, 202710 is Summer 2026, and 202720 is Fall 2026.",
+      "definition_table": ""
+    },
     {
       "name": "STVTERM_DESC",
       "type": "VARCHAR2(30 CHAR)",
