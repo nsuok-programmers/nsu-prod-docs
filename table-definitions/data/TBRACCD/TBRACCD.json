@@ -4,11 +4,13 @@
   "type": "data",
   "tags": [
     "financial",
-    "student"
+    "student",
+    "charges",
+    "balance"
   ],
   "queries": [
     {
-      "name": "Person Has Outstanding Balance",
+      "name": "Accounts with a Balance",
       "description": "A query to track if a person in TBBRACD has an outstanding balance, denoted by a negative balance after all transactions are added.",
       "file": "has-balance.sql"
     }
