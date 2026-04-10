@@ -139,10 +139,11 @@ def generate_table_page(table: dict, table_dir: Path, documented_tables: set[str
     # Queries section
     queries_section = ""
     for q in table.get("queries", []):
+        print(q["file"])
         queries_section += f"\n### {q['name']}\n\n"
         queries_section += f"{q.get('description', '')}\n\n"
         queries_section += f'```sql title="{q["file"]}"\n'
-        queries_section += f'--8<-- "table-definitions/{table_name}/sql/{q["file"]}"\n'
+        queries_section += f'--8<-- "table-definitions/{"definition" if table.get("type") == "definition" else "data"}/{table_name}/sql/{q["file"]}"\n'
         queries_section += "```\n"
 
     if not table.get("queries"):
