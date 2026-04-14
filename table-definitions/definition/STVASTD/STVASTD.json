@@ -1,0 +1,127 @@
+{
+  "name": "STVASTD",
+  "description": "Academic Standing Validation Table",
+  "type": "definition",
+  "tags": [
+    "standing",
+    "student",
+    "registration"
+  ],
+  "queries": [
+    {
+      "name": "Students Who are Inelligable to Register",
+      "description": "This will grab any student who is no longer able to register for classes.",
+      "file": "cant_register.sql"
+    }
+  ],
+  "columns": [
+    {
+      "name": "STVASTD_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "This field identifies the academic standing code referenced in the General Student, Registration and Academic History Modules. Required Value: 00 - Good Standing.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_DESC",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "This field specifies the academic standing (e.g. deans list, academic warning, probation) associated with the standing code.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_PROBATION_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field identifies whether academic standing indicates academic probation. Y - Probation indicated.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_PREVENT_REG_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field identifies whether academic standing prohibits registration. Y - Registration prohibited.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_MAX_REG_HOURS",
+      "type": "NUMBER(9,3)",
+      "description": "This field identifies the maximum number of hours for which a student may register under the associated academic standing.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "This field identifies the most recent date a record was created or updated.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_DEANS_LIST_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field identifies whether academic standing indicates deans list.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_SYSTEM_REQ_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "System Required Indicator",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_EDI_EQUIV",
+      "type": "VARCHAR2(3 CHAR)",
+      "description": "EDI/SPEEDE value for the academic standing code that equates to the acdemic standing code. Refer to the SPEEDE Implementation Guide, with data element #641 for valid values.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_VR_MSG_NO",
+      "type": "NUMBER(6,0)",
+      "description": "The Voice Response message number assigned to the recorded message that describes the academic standing code.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_MIN_REG_HOURS",
+      "type": "NUMBER(9,3)",
+      "description": "MINIMUM HOURS: This field identifies the minimum number of hours for which a student may register under the associated academic standing.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "USER ID: The user ID of the person who inserted or last updated this record.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "DATA ORIGIN: Source system that created or updated the data.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVASTD_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "GUID: GUID storage for academic standings resource.",
+      "definition_table": ""
+    }
+  ],
+  "definition_headers": [
+    "STVASTD Code",
+    "Description",
+    "Probation Ind",
+    "Cannot Register"
+  ]
+}
