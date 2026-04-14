@@ -1,0 +1,175 @@
+{
+  "name": "SFBETRM",
+  "description": "Student Registration Table",
+  "type": "data",
+  "tags": [
+    "student",
+    "base",
+    "term"
+  ],
+  "queries": [
+    {
+      "name": "All 202630 SFBETRM students",
+      "description": "Pull all 202630 SFBETRM students that have Enrollment Status of EL",
+      "file": "202630_sfbetrm_students.sql"
+    }
+  ],
+  "columns": [
+    {
+      "name": "SFBETRM_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "Internal ID.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_TERM_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "Term code associated with this registration.",
+      "definition_table": "STVTERM"
+    },
+    {
+      "name": "SFBETRM_ESTS_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Enrollment Status. Common values are EL, OW, OA, etc",
+      "definition_table": "STVESTS"
+    },
+    {
+      "name": "SFBETRM_ESTS_DATE",
+      "type": "DATE",
+      "description": "Identifies the date associated with the student enrollment status code.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_MHRS_OVER",
+      "type": "NUMBER(9,3)",
+      "description": "'maximum hours' override for this term.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_AR_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "identifies the term charges acceptance indicator.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_ASSESSMENT_DATE",
+      "type": "DATE",
+      "description": "Identifies the date of the assessment for this term.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_ADD_DATE",
+      "type": "DATE",
+      "description": "identifies the date of the initial registration for this term.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "Specifies the most current date the record was created or updated.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_RGRE_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Student Registration Reason Code. Note: STVRGRE is empty.",
+      "definition_table": "STVRGRE"
+    },
+    {
+      "name": "SFBETRM_TMST_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Most recently calculated time status code. FT - Full Time, HT - Half Time, etc",
+      "definition_table": "STVTMST"
+    },
+    {
+      "name": "SFBETRM_TMST_DATE",
+      "type": "DATE",
+      "description": "Date change in time status occurred.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_TMST_MAINT_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Flag indicating whether the change in time status was calculated by the system or overridden and updated by a user.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_USER",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "The ID of the user who updated or created the record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_REFUND_DATE",
+      "type": "DATE",
+      "description": "Refund by total refund date used in performing fee assessment. Date is needed for refund by total processing to determine the refund period used in the last assessment.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "Source system that created or updated the row",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_INITIAL_REG_DATE",
+      "type": "DATE",
+      "description": "Indicates the date when a student's initial or original registration occurred. This date is consulted in registration fee assessment when initial registration grace is in effect for a term.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_MIN_HRS",
+      "type": "NUMBER(9,3)",
+      "description": "Identifies the minimum hours override for this term.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_MINH_SRCE_CDE",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Identifies the source of the minimum hours override for this term.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_MAXH_SRCE_CDE",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Identifies the source of the maximum hours override for this term.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "USER ID: The user ID of the person who inserted or last updated this record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "Student Registration Table Global Unique Identifier: Stores the global unique identifier for a student registration object.",
+      "definition_table": ""
+    },
+    {
+      "name": "SFBETRM_STU_ACAD_PERD_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "STUDENT ACADEMIC PERIOD GUID: Global Unique Identifier to uniquely identify the record of a resource for integration.",
+      "definition_table": ""
+    }
+  ]
+}
