@@ -1,0 +1,246 @@
+{
+  "name": "SPRADDR",
+  "description": "Address Repeating Table",
+  "type": "data",
+  "tags": [
+    "address",
+    "student"
+  ],
+  "queries": [
+    {
+      "name": "Most recent PR address",
+      "description": "Get the most recent Primary address record for each person in SPRADDR",
+      "file": "most_recent_pr_spraddr.sql"
+    }
+  ],
+  "columns": [
+    {
+      "name": "SPRADDR_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "Internal ID.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_ATYP_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Address Type code. Most common values are PR - Primary, MA - Mailing.",
+      "definition_table": "STVATYP"
+    },
+    {
+      "name": "SPRADDR_SEQNO",
+      "type": "NUMBER(2,0)",
+      "description": "Sequence Number",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_FROM_DATE",
+      "type": "DATE",
+      "description": "This field maintains the effective start date of address associated with person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_TO_DATE",
+      "type": "DATE",
+      "description": "This field maintains the effective end date of address associated with person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_STREET_LINE1",
+      "type": "VARCHAR2(75 CHAR)",
+      "description": "This field maintains the first line of the address associated with person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_STREET_LINE2",
+      "type": "VARCHAR2(75 CHAR)",
+      "description": "This field maintains the second line of the address associated with person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_STREET_LINE3",
+      "type": "VARCHAR2(75 CHAR)",
+      "description": "This field maintains the third line of the address associated with person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_CITY",
+      "type": "VARCHAR2(50 CHAR)",
+      "description": "This field maintains the city associated with the address of person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_STAT_CODE",
+      "type": "VARCHAR2(3 CHAR)",
+      "description": "State associated with the address record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_ZIP",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "This field maintains the zip code associated with the address of person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_CNTY_CODE",
+      "type": "VARCHAR2(5 CHAR)",
+      "description": "County code, 5 characters.",
+      "definition_table": "STVCNTY"
+    },
+    {
+      "name": "SPRADDR_NATN_CODE",
+      "type": "VARCHAR2(5 CHAR)",
+      "description": "This field maintains the nation/country associated with the address of person.",
+      "definition_table": "STVNATN"
+    },
+    {
+      "name": "SPRADDR_PHONE_AREA",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "Area code of the address. Our definition table is blank.",
+      "definition_table": "STVAREA"
+    },
+    {
+      "name": "SPRADDR_PHONE_NUMBER",
+      "type": "VARCHAR2(12 CHAR)",
+      "description": "Phone number associated with this address. If you want a phone number though, use SPRTELE. This field is rarely populated.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_PHONE_EXT",
+      "type": "VARCHAR2(10 CHAR)",
+      "description": "This field maintains the extension of the phone number associated with address of person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_STATUS_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field identifies if address information is inactive. Valid value is I - Inactive, NULL = active, like SPRIDEN.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "This field defines the most current date a record is added or changed.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_USER",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "The Id for the User who created or last updated the record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_ASRC_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "Address source code.",
+      "definition_table": "STVASRC"
+    },
+    {
+      "name": "SPRADDR_DELIVERY_POINT",
+      "type": "NUMBER(2,0)",
+      "description": "This field is used to designate the delivery point for mail as established by the Postal Service.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_CORRECTION_DIGIT",
+      "type": "NUMBER(1,0)",
+      "description": " The Correction Digit field is defined by the Postal Service and is used to determine the digits used for delivery related to the ZIP code.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_CARRIER_ROUTE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "The addresses to which a carrier delivers mail. In common usage, carrier route includes city routes, rural routes, highway contract routes, post office box sections, and general delivery units.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_GST_TAX_ID",
+      "type": "VARCHAR2(15 CHAR)",
+      "description": " Goods and Services Tax Identification of vendor at this address",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_REVIEWED_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Verification the address has been validated.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_REVIEWED_USER",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "User who reviewed and validated the address.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "Source system that generated the data",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_CTRY_CODE_PHONE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "Telephone code that designates the region and country.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_HOUSE_NUMBER",
+      "type": "VARCHAR2(10 CHAR)",
+      "description": "Building or lot number on a street or in an area.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_STREET_LINE4",
+      "type": "VARCHAR2(75 CHAR)",
+      "description": "This field maintains the fourth line of the address associated with person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": " Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": " The user ID of the person who inserted or last updated this record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "Multi-entity processing code.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "Stores the global unique identifier for a address object.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_CNTY_CODE_ISO",
+      "type": "VARCHAR2(8 BYTE)",
+      "description": "ISO code for County.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_CNTY_TITLE",
+      "type": "VARCHAR2(30 BYTE)",
+      "description": "Title for County.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRADDR_ADDR_EXT_VERIFIED_CDE",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "Y indicates the address has been verified by the Person Manager address verification integration service.",
+      "definition_table": ""
+    }
+  ]
+}
