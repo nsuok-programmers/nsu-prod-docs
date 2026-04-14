@@ -1,0 +1,338 @@
+{
+  "name": "SPBPERS",
+  "description": "Individual Personal Information Table",
+  "type": "data",
+  "tags": [
+    "person",
+    "student",
+    "employee",
+    "demographic"
+  ],
+  "queries": [],
+  "columns": [
+    {
+      "name": "SPBPERS_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "Internal Identification Number of Person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_SSN",
+      "type": "VARCHAR2(15 CHAR)",
+      "description": "Person's social security number.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_BIRTH_DATE",
+      "type": "DATE",
+      "description": "This field maintains person birth date.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_LGCY_CODE",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field maintains legacy code associated with person.",
+      "definition_table": "STVLGCY"
+    },
+    {
+      "name": "SPBPERS_ETHN_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "ETHNIC CODE: This field identifies the ethnic code referenced on the General Person Form (SPAPERS) and by the Source/Base Institution Year Form (SOABGIY). The code is mapped to other codes which are required for government reporting.",
+      "definition_table": "STVETHN"
+    },
+    {
+      "name": "SPBPERS_MRTL_CODE",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "MARITAL CODE: Marital status of person.",
+      "definition_table": "STVMRTL"
+    },
+    {
+      "name": "SPBPERS_RELG_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "NOT USED: This field maintains religious affiliation associated with person.",
+      "definition_table": "STVRELG"
+    },
+    {
+      "name": "SPBPERS_SEX",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field maintains the sex of person. Valid values are: M - Male, F - Female, N - Unknown.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_CONFID_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field identifies if a person record is confidential Valid value is: Y - confidential.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_DEAD_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field indicates if a person is deceased. Valid value is: Y - deceased.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_VETC_FILE_NUMBER",
+      "type": "VARCHAR2(10 CHAR)",
+      "description": "This field maintains veteran identification number associated with person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_LEGAL_NAME",
+      "type": "VARCHAR2(500 CHAR)",
+      "description": "This field maintains legal name associated with person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_PREF_FIRST_NAME",
+      "type": "VARCHAR2(60 CHAR)",
+      "description": "This field maintains the preferred first name associated with person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_NAME_PREFIX",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "This field maintains the prefix (Mr, Mrs, etc) used before person name.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_NAME_SUFFIX",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "This field maintains the suffix (Jr, Sr, etc) used after person name.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "This field defines the most current date a record is added or changed.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_VERA_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Veteran Category. (NULL) Not a Veteran, (B) Protected veteran choosing not to self-identify the classification, (O) Active Wartime or Campaign Badge Veteran, (V) Not a Protected Veteran",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_CITZ_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Citizen Indicator.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_DEAD_DATE",
+      "type": "DATE",
+      "description": "Person Deceased Date.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_PIN",
+      "type": "RAW(1 BYTE)",
+      "description": "Person Identification Number. This column is obsolete, now gobtpac_pin",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_CITZ_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Person Citizen Type",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_HAIR_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "The hair color of the person being defined.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_EYES_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "The eye color of the person being defined.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_CITY_BIRTH",
+      "type": "VARCHAR2(50 CHAR)",
+      "description": "The city where the person was born.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_STAT_CODE_BIRTH",
+      "type": "VARCHAR2(3 CHAR)",
+      "description": "The state in which the person was born.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_DRIVER_LICENSE",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "The Driver License Number as it appears on the actual license.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_STAT_CODE_DRIVER",
+      "type": "VARCHAR2(3 CHAR)",
+      "description": "The State code describing the state the driver license was issued.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_NATN_CODE_DRIVER",
+      "type": "VARCHAR2(5 CHAR)",
+      "description": "The Nation code associated with the Nation the Driver license was issued.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_UOMS_CODE_HEIGHT",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "The Unit of Measure describing the height value.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_HEIGHT",
+      "type": "NUMBER(2,0)",
+      "description": "The number value describing the height of the person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_UOMS_CODE_WEIGHT",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "The Unit of Measure describing the weight value.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_WEIGHT",
+      "type": "NUMBER(4,0)",
+      "description": "The number value describing the weight of the person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_SDVET_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Indicator to identify an individual as a special disabled veteran.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_LICENSE_ISSUED_DATE",
+      "type": "DATE",
+      "description": "The issue date of the individuals driver license.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_LICENSE_EXPIRES_DATE",
+      "type": "DATE",
+      "description": "The expiration date of the individuals driver license.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_INCAR_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "The indication of the individuals incarceration.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_WEBID",
+      "type": "RAW(1 BYTE)",
+      "description": "Web identification session token is now obsolete.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_WEB_LAST_ACCESS",
+      "type": "RAW(1 BYTE)",
+      "description": "Web last access time stamp is now obsolete.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_PIN_DISABLED_IND",
+      "type": "RAW(1 BYTE)",
+      "description": "Indicates whether or not the PIN number is disabled. This column is obsolete, now gobtpac_pin_disabled_ind",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_ITIN",
+      "type": "NUMBER(9,0)",
+      "description": "The international tax id number.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_ACTIVE_DUTY_SEPR_DATE",
+      "type": "DATE",
+      "description": "Active Duty Separation Date: The Date that the person was separated from active duty.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "DATA ORIGIN: Source system that created or updated the row",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "USER ID: User who inserted or last update the data",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_ETHN_CDE",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "ETHNIC CODE: This field identifies the ethnic code defined by the U.S. government. The valid values are 1 - Not Hispanic or Latino, 2 - Hispanic or Latino, or null.",
+      "definition_table": "STVETHN"
+    },
+    {
+      "name": "SPBPERS_CONFIRMED_RE_CDE",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "RACE AND ETHNICITY CONFIRMED: This field identifies the race and ethnicity has been confirmed. Valid values are (Y)es, (N)o and Null.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_CONFIRMED_RE_DATE",
+      "type": "DATE",
+      "description": "RACE AND ETHNICITY CONFIRMED DATE: This field identifies when the race and ethnicity has been confirmed.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_ARMED_SERV_MED_VET_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "ARMED FORCES SERVICE MEDAL INDICATOR: Armed Forces Service Medal Indicator. Valid values are (Y)es, (N)o. Default value is N.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_GNDR_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "GNDR CODE: This field identifies the gender identity of the person.",
+      "definition_table": "GTVGNDR"
+    },
+    {
+      "name": "SPBPERS_PPRN_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "PPRN CODE: This field identifies the personal pronoun of the person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_PREF_MIDDLE_NAME",
+      "type": "VARCHAR2(60 CHAR)",
+      "description": "PREFERRED MIDDLE NAME: This field maintains the preferred middle name associated with person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPBPERS_PREF_LAST_NAME",
+      "type": "VARCHAR2(60 CHAR)",
+      "description": "PREFERRED LAST NAME: This field maintains the preferred last name associated with person.",
+      "definition_table": ""
+    }
+  ]
+}
