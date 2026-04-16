@@ -1,0 +1,110 @@
+{
+  "name": "SPRHOLD",
+  "description": "Person Related Holds Repeating Table",
+  "type": "data",
+  "tags": [
+    "person",
+    "hold",
+    "student",
+    "repeating"
+  ],
+  "queries": [],
+  "columns": [
+    {
+      "name": "SPRHOLD_SEQUENCE_NO",
+      "type": "NUMBER(19,0)",
+      "description": "SEQUENCE NUMBER: Unique Sequence number for each Hold record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "Internal identification number of the person.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_HLDD_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "This field identifies the type of hold on person record.",
+      "definition_table": "STVHLDD"
+    },
+    {
+      "name": "SPRHOLD_USER",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "This field identifies the system user signon id initiating hold.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_FROM_DATE",
+      "type": "DATE",
+      "description": "This field identifies the effective begin date of hold.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_TO_DATE",
+      "type": "DATE",
+      "description": "This field identifies the end date hold expires.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_RELEASE_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field indicates that only the system user who entered the hold may release the hold. Valid value is: Y - allow only system user to release hold.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_REASON",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "Free format field which identifies the reason hold was placed.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_AMOUNT_OWED",
+      "type": "NUMBER(16,2)",
+      "description": "This field identifies a dollar amount associated with hold.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_ORIG_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "This field identifies person/office who authorized hold status.",
+      "definition_table": "STVORIG"
+    },
+    {
+      "name": "SPRHOLD_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "This field defines most current date record is created or changed.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "DATA SOURCE: Source system that created or updated the row",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "USER ID: The user ID of the person who inserted or last updated this record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SPRHOLD_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    }
+  ]
+}
