@@ -1,0 +1,283 @@
+{
+  "name": "SORLCUR",
+  "description": "Student Curriculum repeating table to store level, college, program and other data associated with curriculum.",
+  "type": "data",
+  "tags": [
+    "college",
+    "program",
+    "student"
+  ],
+  "queries": [],
+  "columns": [
+    {
+      "name": "SORLCUR_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "PIDM: Unique internal ID for individual who has records in the system.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_SEQNO",
+      "type": "NUMBER(4,0)",
+      "description": "LCUR SEQNO: One up number to define the row.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_LMOD_CODE",
+      "type": "VARCHAR2(15 CHAR)",
+      "description": "LEARNER MODULE CODE: Learner Module Code.",
+      "definition_table": "STVLMOD"
+    },
+    {
+      "name": "SORLCUR_TERM_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "TERM CODE: Term code.",
+      "definition_table": "STVTERM"
+    },
+    {
+      "name": "SORLCUR_KEY_SEQNO",
+      "type": "NUMBER(2,0)",
+      "description": "KEY SEQNO: Sequence number of key record, saradap_appl_no, srbrecr_seqno, shrdgmr_seqno, sgrstsp_key_seqno.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_PRIORITY_NO",
+      "type": "NUMBER(4,0)",
+      "description": "PRIORITY NO: priority of the curriculum within the module.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_ROLL_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "ROLL IND: Y/N indicator if the learner curriclum should roll to academic history when courses are rolled.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_CACT_CODE",
+      "type": "VARCHAR2(15 CHAR)",
+      "description": "CURRICULUM ACTIVITY STATUS: Activity status code for the curriculum.",
+      "definition_table": "STVCACT"
+    },
+    {
+      "name": "SORLCUR_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "UPDATE USER ID: Most recent user to create or update the record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "DATA SOURCE: Source system that generated the data",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "ACTIVITY DATE: The most recent date a record was created or updated",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_LEVL_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "LEVEL CODE: Level code of the curriculum.",
+      "definition_table": "STVLEVL"
+    },
+    {
+      "name": "SORLCUR_COLL_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "COLLEGE CODE: college code of the curriculum.",
+      "definition_table": "STVCOLL"
+    },
+    {
+      "name": "SORLCUR_DEGC_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "DEGREE CODE: degree code of the curriculum.",
+      "definition_table": "STVDEGC"
+    },
+    {
+      "name": "SORLCUR_TERM_CODE_CTLG",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "TERM CATALOG: catalog term code of the learner curriculum.",
+      "definition_table": "STVTERM"
+    },
+    {
+      "name": "SORLCUR_TERM_CODE_END",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "TERM END: end term code of the curriculum.",
+      "definition_table": "STVTERM"
+    },
+    {
+      "name": "SORLCUR_TERM_CODE_MATRIC",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "TERM MATRICULATED: term code learner matriculated into the curriculum.",
+      "definition_table": "STVTERM"
+    },
+    {
+      "name": "SORLCUR_TERM_CODE_ADMIT",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "TERM ADMIT: term code learner was admitted to curriculum.",
+      "definition_table": "STVTERM"
+    },
+    {
+      "name": "SORLCUR_ADMT_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "ADMIT CODE: admit code for the learners admission to the curriculum.",
+      "definition_table": "STVADMT"
+    },
+    {
+      "name": "SORLCUR_CAMP_CODE",
+      "type": "VARCHAR2(3 CHAR)",
+      "description": "CAMPUS CODE: campus code of the curriculum.",
+      "definition_table": "STVCAMP"
+    },
+    {
+      "name": "SORLCUR_PROGRAM",
+      "type": "VARCHAR2(12 CHAR)",
+      "description": "PROGRAM: program of the curriculum.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_START_DATE",
+      "type": "DATE",
+      "description": "START DATE: date curriculum starts.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_END_DATE",
+      "type": "DATE",
+      "description": "END DATE: date curriculum ends.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_CURR_RULE",
+      "type": "NUMBER(8,0)",
+      "description": "CURRICULUM RULE NUMBER: rule number of the curriculum.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_ROLLED_SEQNO",
+      "type": "NUMBER(4,0)",
+      "description": "ROLLED SEQNO: sorlcur_seqno of outcome created during the grade roll.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_STYP_CODE",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "LEARNER TYPE: This describes the type of student.",
+      "definition_table": "STVSTYP"
+    },
+    {
+      "name": "SORLCUR_RATE_CODE",
+      "type": "VARCHAR2(5 CHAR)",
+      "description": "RATE CODE: This is the fee assessment rate code.",
+      "definition_table": "STVRATE"
+    },
+    {
+      "name": "SORLCUR_LEAV_CODE",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "LEAVE CODE: This describes the reason for the leave of absense.",
+      "definition_table": "STVLEAV"
+    },
+    {
+      "name": "SORLCUR_LEAV_FROM_DATE",
+      "type": "DATE",
+      "description": "LEAVE TO DATE: This is the end date of the leave.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_LEAV_TO_DATE",
+      "type": "DATE",
+      "description": "LEAVE FROM DATE: This is the start date of the leave.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_EXP_GRAD_DATE",
+      "type": "DATE",
+      "description": "EXPECTED GRADUATION DATE: This is the date the learner is expected to graduate from the curriculum.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_TERM_CODE_GRAD",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "EXPECTED GRADUATION TERM: This is the expected term the learner will graduate.",
+      "definition_table": "STVTERM"
+    },
+    {
+      "name": "SORLCUR_ACYR_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "GRADUATION ACADEMIC YEAR: This is the academic year for the graduation.",
+      "definition_table": "STVACYR"
+    },
+    {
+      "name": "SORLCUR_SITE_CODE",
+      "type": "VARCHAR2(3 CHAR)",
+      "description": "LEARNER SITE: This describes the site of student.",
+      "definition_table": "STVSITE"
+    },
+    {
+      "name": "SORLCUR_APPL_SEQNO",
+      "type": "NUMBER(4,0)",
+      "description": "APPLICATION SEQUENCE NUMBER: This is the sequence number of the application curriculum the learner curriculum was created from.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_APPL_KEY_SEQNO",
+      "type": "NUMBER(2,0)",
+      "description": "APPLICATION NUMBER: This is the application number the learner curriculum was created from.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_USER_ID_UPDATE",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_ACTIVITY_DATE_UPDATE",
+      "type": "DATE",
+      "description": "UPDATE ACTIVITY DATE: Most recent date the record was updated.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_GAPP_SEQNO",
+      "type": "NUMBER(4,0)",
+      "description": "GRADUATION SEQUENCE NUMBER: The sequence number of the graduation application.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_CURRENT_CDE",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "CURRENT INDICATOR: Will be Y if this is the current curriculum, NULL if not.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "Learner Curriculum repeating Table Global Unique Identifier: Stores the global unique identifier for a student program object.",
+      "definition_table": ""
+    },
+    {
+      "name": "SORLCUR_OUTCOME_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "OUTCOME GUID: Global Unique Identifier to uniquely identify the record of a resource for integration.",
+      "definition_table": ""
+    }
+  ]
+}
