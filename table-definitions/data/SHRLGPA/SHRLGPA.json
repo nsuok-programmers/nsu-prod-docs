@@ -1,0 +1,109 @@
+{
+  "name": "SHRLGPA",
+  "description": "Level GPA Table",
+  "type": "data",
+  "tags": [
+    "level",
+    "student",
+    "gpa"
+  ],
+  "queries": [],
+  "columns": [
+    {
+      "name": "SHRLGPA_GPA_TYPE_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "GPA Type Indicator. Valid values are: I - Institutional Course GPA, T - Transfer Course GPA, and O - Overall Course GPA.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_LEVL_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Level Code associated with GPA hours and calculations.",
+      "definition_table": "STVLEVL"
+    },
+    {
+      "name": "SHRLGPA_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "Internal Identification Number of Student.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_HOURS_ATTEMPTED",
+      "type": "NUMBER(11,3)",
+      "description": "Hours Attempted for the level.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_HOURS_EARNED",
+      "type": "NUMBER(11,3)",
+      "description": "Hours Earned for the level.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_GPA_HOURS",
+      "type": "NUMBER(11,3)",
+      "description": "Hours Used for GPA calculation for the level.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_QUALITY_POINTS",
+      "type": "NUMBER(17,6)",
+      "description": "Quality Points for the level. Calculated by multiplying credit hours of the course by quality points associated with the grade.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_GPA",
+      "type": "NUMBER(23,9)",
+      "description": "GPA for the level. Calculated by dividing GPA hours for the level into Quality points for the level.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "Activtity Date. Specifies the date record was created or updated.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_HOURS_PASSED",
+      "type": "NUMBER(11,3)",
+      "description": "Hours Passed for the level.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_GPA_CALC",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field is used to determine whether the gpa for a student needs to be recalculated or not. Y means the gpa is up to date and N means the student has had courses rolled to history and the gpa needs to be recalulated for them",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "USER ID: The user ID of the person who inserted or last updated this record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "DATA ORIGIN: Source system that created or updated the data.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRLGPA_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    }
+  ]
+}
