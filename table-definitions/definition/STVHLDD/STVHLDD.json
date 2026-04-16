@@ -1,0 +1,128 @@
+{
+  "name": "STVHLDD",
+  "description": "Person Hold Type Validation Table",
+  "type": "definition",
+  "tags": [
+    "person",
+    "hold"
+  ],
+  "queries": [],
+  "columns": [
+    {
+      "name": "STVHLDD_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "This field identifies the hold type code referenced in the Academic History Module and cross-referenced by the Hold Form (SOAHOLD) and Hold Query-Only Form (SOQHOLD).",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_REG_HOLD_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field indicates whether the hold type prevents registration.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_TRANS_HOLD_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field indicates whether the hold type prevents transcript generation.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_GRAD_HOLD_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field indicates whether the hold type prevents graduation.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_GRADE_HOLD_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field indicates whether the hold type prevents grade report generation.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_DESC",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "This field specifies the hold type (e.g. registrars hold, library fine, financial hold, etc.) associated with the hold type code.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "This field identifies the most recent date a record was created or updated.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_AR_HOLD_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "AR Hold Indicator.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_ENV_HOLD_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Enrollment verification hold indicator",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_VR_MSG_NO",
+      "type": "NUMBER(6,0)",
+      "description": "The Voice Response message number assigned to the recorded message that describes the hold type code.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_DISP_WEB_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "'N' Web display indicator",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_APPLICATION_HOLD_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Indicates application hold which will prevent creation of application.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_COMPLIANCE_HOLD_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field indicates whether the hold type prevents compliance.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "USER ID: The user ID of the person who inserted or last updated this record.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "DATA ORIGIN: Source system that created or updated the data.",
+      "definition_table": ""
+    },
+    {
+      "name": "STVHLDD_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    }
+  ],
+  "definition_headers": [
+    "STVHLDD Code",
+    "Description",
+    "Prevent Reg",
+    "Prevent Trans",
+    "Prevent Grad",
+    "Prevent Grade"
+  ]
+}
