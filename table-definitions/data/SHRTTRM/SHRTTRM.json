@@ -1,0 +1,192 @@
+{
+  "name": "SHRTTRM",
+  "description": "Institutional Course Maintenance Term Header Repeating Table",
+  "type": "data",
+  "tags": [
+    "course",
+    "standing"
+  ],
+  "queries": [],
+  "columns": [
+    {
+      "name": "SHRTTRM_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "Internal Identification Number of Student.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_TERM_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "Term Code. Term of student institutional course record.",
+      "definition_table": "STVTERM"
+    },
+    {
+      "name": "SHRTTRM_UPDATE_SOURCE_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Source Indicator. Indicates sourse of how record was created. Valid values are: S - System created during grade roll process, and U - User created.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_PRE_CATALOG_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field is the Pre-Catalog Indicator. It specifies if the term course information is based on the existing Banner catalog or is conversion data being entered prior to the Banner catalog data. Valid values are: Y - Pre-catalog, and N - Current Catalog.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_RECORD_STATUS_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Status Indicator. Specifies the status of the term record. Valid values are: G - Grade Mailer Pending, C - Grade Mailer processing complete, R - Revised Grade Mailer Pending, N - New Record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_RECORD_STATUS_DATE",
+      "type": "DATE",
+      "description": "Status Date. Date associated with the status of the record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_GRADE_MAILING_DATE",
+      "type": "DATE",
+      "description": "Grade Mailer Date. Indicates the date grade mailer was sent to the student.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_GRADE_MAILER_CHG_DATE",
+      "type": "DATE",
+      "description": "Grade Mailer Change Date. Indicates the date a revised or duplicate grade mailer was sent to the student.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_GRADE_MAILER_DUP",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "Grade Mailer Duplicate Indicator. Specifies that duplicate grade mailer should be sent to the student. Valid value is Y - Send duplicate mailer.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_GRADE_MAILER_DUP_DATE",
+      "type": "DATE",
+      "description": "Duplicate Grade Mailer Date. Indicates date duplicate grade mailer was sent.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_EXAM_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Examination Code. Identifies a special examination the student took during the term.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_CODE_TRANSCRIPT_DIST",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "This field is not currently used.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_ASTD_CODE_END_OF_TERM",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "This field is the End of Term Academic Standing Code. It Identifies student academic standing for the term (probation, good standing, etc.). Calculated based on the academic standing rules during the end of term standing process or may be entered directly.",
+      "definition_table": "STVASTD"
+    },
+    {
+      "name": "SHRTTRM_ASTD_DATE_END_OF_TERM",
+      "type": "DATE",
+      "description": "Date Academic Standing was entered.",
+      "definition_table": "STVASTD"
+    },
+    {
+      "name": "SHRTTRM_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "Activity Date. Specifies the date record was created or updated.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_ASTD_CODE_DL",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Deans List Code. Identifies if student qualified for deans list for the term. Calculated based on academic standing deans list rules or may be directly entered.",
+      "definition_table": "STVASTD"
+    },
+    {
+      "name": "SHRTTRM_ASTD_DATE_DL",
+      "type": "DATE",
+      "description": "Date Deans List Status was entered.",
+      "definition_table": "STVASTD"
+    },
+    {
+      "name": "SHRTTRM_WRSN_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Reason for withdrawal from this institution.",
+      "definition_table": "STVWRSN"
+    },
+    {
+      "name": "SHRTTRM_SBGI_CODE_TRANS",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "Institution to which the student will transfer",
+      "definition_table": "STVSBGI"
+    },
+    {
+      "name": "SHRTTRM_PREV_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Academic History Term record Progress Evaluation code. This code is populated by SHRPREV.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_PREV_DATE",
+      "type": "DATE",
+      "description": "Academic History Term record Progress Evaluation date. This is the date progress evaluation code was updated.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_CAST_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "Academic History Term record Combined Academic Standing code. This code is populated by SHRPREV.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_CAST_DATE",
+      "type": "DATE",
+      "description": "Academic History Term record Combined Academic Standing date. This is the date combined academic standing code was updated.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_SCPS_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "Student Centric Period code.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "USER ID: The user ID of the person who inserted or last updated this record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "DATA ORIGIN: Source system that created or updated the data.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    },
+    {
+      "name": "SHRTTRM_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "GUID: Global Unique Identifier to uniquely identify the record of a resource for integration.",
+      "definition_table": ""
+    }
+  ]
+}
