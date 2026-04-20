@@ -1,0 +1,280 @@
+{
+  "name": "ROBUSDF",
+  "description": "Student User DeFined table. Info courtesy of Vicki",
+  "type": "data",
+  "tags": [
+    "student",
+    "user defined",
+    "financial aid",
+    "fafsa",
+    "okprom",
+    "otag",
+    "optometry",
+    "scripts",
+    "budgeting",
+    "teach grant",
+    "counselors",
+    "consortium"
+  ],
+  "queries": [],
+  "columns": [
+    {
+      "name": "ROBUSDF_AIDY_CODE",
+      "type": "VARCHAR2(4 CHAR)",
+      "description": "Aid Year code. ",
+      "definition_table": "ROVAIDY"
+    },
+    {
+      "name": "ROBUSDF_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "Internal ID. Use to join",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "Date this row was last changed/accessed",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_1",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 1-5 are the data from the OKPROM file loads done via sync\". This field is likely E, N, X, Y, y, or NULL",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_2",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 1-5 are the data from the OKPROM file loads done via sync\". This field is usually Y or NULL but can be E, F, N, 6, GRAD, X, or e.",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_3",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 1-5 are the data from the OKPROM file loads done via sync\". The type here is VARCHAR technically but this is a date column.",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_4",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 1-5 are the data from the OKPROM file loads done via sync\". This column stores numerical values",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_5",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 1-5 are the data from the OKPROM file loads done via sync\". This column stores numerical values",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_6",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "Values stored here seem to be E, Y, N, or NULL. Most likely an indicator for scripts",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_7",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 7-11 are the data pertaining to the OTAG awards & claims. This value has only dates stored in it up to this point.",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_8",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 7-11 are the data pertaining to the OTAG awards & claims",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_9",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 7-11 are the data pertaining to the OTAG awards & claims. This column is almost always F or NULL here.",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_10",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 7-11 are the data pertaining to the OTAG awards & claims. Common values are E, F, Y, N, and NULL",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_11",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 7-11 are the data pertaining to the OTAG awards & claims. This column is used to store a date",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_12",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: Field 12 is updated when fields 1-5 are updated so we will know we have current info",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_13",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 13-14 are used to check eligibility for OKPROM\". This column stores a year most of the time (Ex: 2010)",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_14",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 13-14 are used to check eligibility for OKPROM\". This column almost always stores Y/y, N, X/x, or NULL",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_15",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 15-18 are used in budgeting to keep track of the OPT students year\". Commonly stored here is Y, x, X, NULL",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_16",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 15-18 are used in budgeting to keep track of the OPT students year\". Commonly stored here is Y, x, X, NULL",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_17",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 15-18 are used in budgeting to keep track of the OPT students year\". Commonly stored here is Y, x, X, NULL",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_18",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 15-18 are used in budgeting to keep track of the OPT students year\". Commonly stored here is Y, X, x NULL",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_19",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 19 and 20 are fields updated by scripts, Written by Brooks and used in Tracking and Budgeting\". Tracking and Budgeting are both sub-Process Flows of the Automic Process Flow \"FA_DAILY\". Numerical values are stored here",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_20",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 19 and 20 are fields updated by scripts, Written by Brooks and used in Tracking and Budgeting\". Tracking and Budgeting are both sub-Process Flows of the Automic Process Flow \"FA_DAILY\". Numerical values 1,2,3, or NULL are stored here",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_21",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 21 and fields 31-39 are used in budgeting for different rate types\". Looks like there have been Y, X values stored here but also term codes at times.",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_22",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 22-25 are used to track Inspire to Teach students\". Values here are Y, 2.0, 2.75, 2.5, so possibly GPA data.",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_23",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 22-25 are used to track Inspire to Teach students\". Values: E, Y, NULL",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_24",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 22-25 are used to track Inspire to Teach students\". Values: e, Y",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_25",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 22-25 are used to track Inspire to Teach students\". Values: Y, NULL",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_26",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 26-28 are updated by the P_ROAUSDF_DAYS_ENROLLED procedure and used in budgeting\". Like mentioned above Budgeting is an Automic Process Flow inside FA_DAILY. Numerics stored here",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_27",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 26-28 are updated by the P_ROAUSDF_DAYS_ENROLLED procedure and used in budgeting\". Like mentioned above Budgeting is an Automic Process Flow inside FA_DAILY. Numerics stored here",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_28",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 26-28 are updated by the P_ROAUSDF_DAYS_ENROLLED procedure and used in budgeting\". Like mentioned above Budgeting is an Automic Process Flow inside FA_DAILY. Numerics stored here",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_29",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 29-30 are internally used by counselors\". Values here vary wildly, all strings. Some examples are DOCS, W, NC, GR, SAP, NOELG.",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_30",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Fields 29-30 are internally used by counselors\". Values here vary wildly, all strings. Some examples are PJO, susp, P, A, 2.",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_31",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 21 and fields 31-39 are used in budgeting for different rate types\"",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_32",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 21 and fields 31-39 are used in budgeting for different rate types\"",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_33",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 21 and fields 31-39 are used in budgeting for different rate types\"",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_34",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 21 and fields 31-39 are used in budgeting for different rate types\"",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_35",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 21 and fields 31-39 are used in budgeting for different rate types\"",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_36",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 21 and fields 31-39 are used in budgeting for different rate types\"",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_37",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 21 and fields 31-39 are used in budgeting for different rate types\"",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_38",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 21 and fields 31-39 are used in budgeting for different rate types\"",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_39",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 21 and fields 31-39 are used in budgeting for different rate types\"",
+      "definition_table": ""
+    },
+    {
+      "name": "ROBUSDF_VALUE_40",
+      "type": "VARCHAR2(20 CHAR)",
+      "description": "From Vicki: \"Field 40 is used to signify that the student has a consortium agreement\". Only values I see here are y and NULL.",
+      "definition_table": ""
+    }
+  ]
+}
