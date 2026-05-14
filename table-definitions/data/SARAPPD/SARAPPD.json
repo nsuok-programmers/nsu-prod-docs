@@ -1,0 +1,114 @@
+{
+  "name": "SARAPPD",
+  "description": "Student Application Decision Repeating Table",
+  "type": "data",
+  "tags": [
+    "student",
+    "applications"
+  ],
+  "queries": [
+    {
+      "name": "Students that started this semester",
+      "description": "This query pulls students whose first semester is equal to the current semester.",
+      "file": "students_started_this_semester.sql"
+    }
+  ],
+  "columns": [
+    {
+      "name": "SARAPPD_APPL_NO",
+      "type": "NUMBER(2,0)",
+      "description": "This field identifies the application number within the effective term record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_PIDM",
+      "type": "NUMBER(8,0)",
+      "description": "Internal ID.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_SEQ_NO",
+      "type": "NUMBER(2,0)",
+      "description": "This field does not display on the form. It identifies the system assigned internal sequence number associated with the application record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_TERM_CODE_ENTRY",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "This field identifies the effective term of the application record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_APDC_DATE",
+      "type": "DATE",
+      "description": "This field identifies the date application decision was effective.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_APDC_CODE",
+      "type": "VARCHAR2(2 CHAR)",
+      "description": "This field identifies the application decision (APDC) value associated with the application decision.",
+      "definition_table": "STVAPDC"
+    },
+    {
+      "name": "SARAPPD_MAINT_IND",
+      "type": "VARCHAR2(1 CHAR)",
+      "description": "This field identifies whether the application decision was maintained by the system or the user.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_ACTIVITY_DATE",
+      "type": "DATE",
+      "description": "This field identifies the most current date record was created or updated.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_USER",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "USER: The ID of the most recent user to create or update a record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_DATA_ORIGIN",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "DATA SOURCE: Source system that generated the data",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_SURROGATE_ID",
+      "type": "NUMBER(19,0)",
+      "description": "SURROGATE ID: Immutable unique key",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_VERSION",
+      "type": "NUMBER(19,0)",
+      "description": "VERSION: Optimistic lock token.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_USER_ID",
+      "type": "VARCHAR2(30 CHAR)",
+      "description": "USER ID: The user ID of the person who inserted or last updated this record.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_VPDI_CODE",
+      "type": "VARCHAR2(6 CHAR)",
+      "description": "VPDI CODE: Multi-entity processing code.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "GUID: GUID storage.",
+      "definition_table": ""
+    },
+    {
+      "name": "SARAPPD_DFE_ADMN_DECN_GUID",
+      "type": "VARCHAR2(36 BYTE)",
+      "description": "DEPARTMENT FOR EDUCATION ADMISSION DECISION GUID: Global Unique Identifier for Department For Education Admission Decision.",
+      "definition_table": ""
+    }
+  ]
+}
