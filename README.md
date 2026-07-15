@@ -15,20 +15,35 @@ Site runs at `http://127.0.0.1:8000`. Pushing to `main` auto-deploys to GitHub P
 ## Project Structure
 
 ```
-table-definitions/        ← source of truth (what you edit)
+main.py                     ← interactive CLI tool and main entry point for users
+table-definitions/          ← source of truth (what you edit)
 ├── SPRIDEN/
-│   ├── SPRIDEN.json      ← table metadata
-│   ├── SPRIDEN.dat        ← lookup values (definition tables only)
+│   ├── SPRIDEN.json        ← table metadata
+│   ├── SPRIDEN.dat         ← lookup values (definition tables only)
 │   └── sql/
-│       └── find-name.sql  ← queries
+│       └── find-name.sql   ← queries
 tools/
-├── info-converter/        ← converts .info files to JSON
+├── info-converter/         ← converts .info files to JSON
 │   ├── convert.py
-│   ├── info-files/        ← drop .info files here
-│   └── converted/         ← JSON output
+│   ├── info-files/         ← drop .info files here
+│   └── converted/          ← JSON output
 └── page-generator/
-    └── generate.py        ← builds markdown from JSON
-docs/                      ← generated (don't edit directly)
+    └── generate.py         ← builds markdown from JSON
+docs/                       ← generated (don't edit directly)
+```
+
+## CLI Tool Usage
+```
+python main.py                  # Launch interactive REPL
+python main.py convert [TABLE]  # Convert .info files to JSON (all, or one table)
+python main.py update-refs      # Update table references
+python main.py generate         # Generate MkDocs pages
+python main.py all [TABLE]      # Run convert, update-refs, and generate in sequence (all, or one table)
+
+# MKDocs commands:
+python main.py status           # Show pipeline gaps (unconverted/unplaced tables)
+python main.py build            # Build the MkDocs site (--strict)
+python main.py serve            # Serve the MkDocs site locally
 ```
 
 ## Contributing

@@ -85,10 +85,17 @@ table-definitions/STVDEGC/
 ```
 
 #### 7. Generate and preview
+Run either through the CLI tool or REPL
 
 ```bash
-python tools/page-generator/generate.py
-mkdocs serve
+# Repl
+python main.py
+#   - Select option 4 (all)
+#   - Select option 6 (serve)
+
+# CLI tool
+python main.py all
+python main.py serve
 ```
 
 #### 8. Squash and submit PR
@@ -131,10 +138,17 @@ Edit the relevant files in `table-definitions/<TABLENAME>/`:
 - `sql/*.sql` — add, modify, or remove query files
 
 #### 3. Generate and preview
+Run either through the CLI tool or REPL
 
 ```bash
-python tools/page-generator/generate.py
-mkdocs serve
+# Repl
+python main.py
+#   - Select option 4 (all)
+#   - Select option 6 (serve)
+
+# CLI tool
+python main.py all
+python main.py serve
 ```
 
 #### 4. Squash and submit PR
@@ -180,11 +194,11 @@ Run the tool and verify the output:
 
 ```bash
 # For converter changes
-python tools/info-converter/convert.py
+python main.py convert
 
 # For generator changes
-python tools/page-generator/generate.py
-mkdocs serve
+python main.py generate
+python main.py serve
 ```
 
 #### 4. Squash and submit PR
@@ -220,6 +234,9 @@ git checkout -b tool/add/<description>
 
 Add a new tool in the `tools/` directory with an appropriate folder structure.
 
+> [!IMPORTANT]
+> Do not change `main.py`. Any tools created will be added to `main.py` by primary contributors.
+
 #### 3. Test your changes
 
 Run the tool and verify the output works as expected.
@@ -236,6 +253,6 @@ git push --force-with-lease origin tool/add/<description>
 
 **Allowed files in an add-tool PR:**
 
-- `tools/<toolname>/*.py`
+- `tools/<toolname>/*`
 
-PRs containing other files will be rejected.
+PRs containing files in any other place than the created folder will be rejected.
