@@ -1,10 +1,26 @@
 #!/usr/bin/env python3
 """Generate MkDocs pages from table definition folders."""
 
+import html
 import json
 import re
+import logging
 from pathlib import Path
+from jinja2 import Environment, FileSystemLoader
+from ruamel.yaml import YAML
 
+# Set up logging
+logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Set up YAML parser with ruamel.yaml
+yaml = YAML()
+yaml.preserve_quotes = True
+yaml.indent(
+    mapping=2, sequence=4, offset=2
+)  # Preserve indentation for better readability
+
+# Define paths
 SCRIPT_DIR = Path(__file__).parent
 ROOT = SCRIPT_DIR.parent.parent
 DEFS_DIR = ROOT / "table-definitions"
@@ -15,8 +31,21 @@ INDEX_MD = DOCS_DIR / "index.md"
 DATA_INDEX = DOCS_DIR / "data-tables.md"
 DEF_INDEX = DOCS_DIR / "definition-tables.md"
 
+# Setup Jinja2 environment for template rendering
+TEMPLATES_DIR = SCRIPT_DIR / "templates"
+env = Environment(
+    loader=FileSystemLoader(TEMPLATES_DIR), trim_blocks=True, lstrip_blocks=True
+)
 
-def read_definitions_file(file_path: Path, headers: list[str] | None = None) -> str | None:
+
+def _is_definition_table(table: dict) -> bool:
+    """Determine if a table is a definition table."""
+    return table.get("type") == "definition"
+
+
+def _read_definitions_file(
+    file_path: Path, headers: list[str] | None = None
+) -> str | None:
     """Read a .dat file and return it as a filterable HTML table."""
     if not file_path.exists():
         return "## Values\n\n*No values loaded. Add a .dat file to populate this section.*\n"
@@ -56,43 +85,69 @@ def read_definitions_file(file_path: Path, headers: list[str] | None = None) -> 
         else:
             headers = ["Index"] + [f"Value{i}" for i in range(1, col_count)]
 
-    html = '## Values\n\n'
-
-    # Input
-    html += '<input type="text" id="values-filter" placeholder="Filter values..." '
-    html += 'style="margin-bottom:1rem;padding:0.5rem;width:25%;border:1px solid var(--md-default-fg-color--lighter);border-radius:0.25rem;background:var(--md-default-bg-color);color:var(--md-default-fg-color);" '
-    html += 'onkeyup="(function(e){var q=e.value.toLowerCase();document.querySelectorAll(\'#values-table tbody tr\').forEach(function(r){r.style.display=r.textContent.toLowerCase().includes(q)?\'\':\'none\'})})(this)">\n\n'
-
-    # Table
-    html += '<table id="values-table" style="display:inline-block;height:400px;overflow-y:auto;table-layout:fixed;">\n'
-    html += '<thead style="position:sticky;top:0;background:var(--md-default-bg-color);z-index:1;">\n<tr>'
+    out = '## Values\n\n<div class="filterable values-table">\n<table>\n<thead>\n<tr>'
     for h in headers:
-        html += f'<th>{h}</th>'
-    html += '</tr>\n</thead>\n<tbody>\n'
+        out += f"<th>{html.escape(h)}</th>"
+    out += "</tr>\n</thead>\n<tbody>\n"
     for row in rows:
-        html += '<tr>'
+        out += "<tr>"
         for cell in row:
-            html += f'<td>{cell}</td>'
-        html += '</tr>\n'
-    html += '</tbody>\n</table>\n'
+            out += f"<td>{html.escape(cell)}</td>"
+        out += "</tr>\n"
+    out += "</tbody>\n</table>\n</div>\n"
 
-    return html
+    return out
 
 
-def generate_table_page(table: dict, table_dir: Path, documented_tables: set[str]) -> str:
-    tags_yaml = "\n".join(f"  - {t}" for t in table["tags"])
-    table_type = table.get("type", "data")
+def generate_table_page(
+    table: dict, table_dir: Path, documented_tables: set[str]
+) -> str:
+    """Generate a Markdown page for a given table definition."""
     table_name = table["name"]
 
-    # Check if any column has a non-empty definition table link
-    has_definitions = any(
-        col.get("definition_table", "").strip()
-        for col in table["columns"]
+    schema_table = _build_schema_table(table, documented_tables)
+    definitions_section = _build_definitions_section(table, table_dir) or ""
+    references_section = _build_references_section(table, documented_tables)
+    queries_section = _build_queries_section(table, table_dir)
+
+    return env.get_template("table_page.md.j2").render(
+        tags=table.get("tags", []),
+        table_name=table_name,
+        description=table.get("description", ""),
+        is_definition=_is_definition_table(table),
+        schema_table=schema_table,
+        definitions_section=definitions_section,
+        references_section=references_section,
+        queries_section=queries_section,
     )
 
-    # Schema table
+
+def generate_index(data_count: int, def_count: int) -> str:
+    """Generate the main index page with counts of data and definition tables."""
+    return env.get_template("index.md.j2").render(
+        data_count=data_count, def_count=def_count
+    )
+
+
+def generate_type_index(tables: list[dict], title: str, description: str) -> str:
+    """Generate an index page for a specific type of table (data or definition)."""
+    cards = _build_cards(tables)
+    return env.get_template("type_index.md.j2").render(
+        title=title, description=description, cards=cards
+    )
+
+
+def _build_schema_table(table: dict, documented_tables: set[str]) -> str:
+    """Build the schema table for a given table definition."""
+    has_definitions = any(
+        col.get("definition_table", "").strip() for col in table["columns"]
+    )
+
+    # Schema table header
     if has_definitions:
-        header = "| Column | Type | Description | Definition |\n| --- | --- | --- | --- |"
+        header = (
+            "| Column | Type | Description | Definition |\n| --- | --- | --- | --- |"
+        )
     else:
         header = "| Column | Type | Description |\n| --- | --- | --- |"
 
@@ -108,160 +163,97 @@ def generate_table_page(table: dict, table_dir: Path, documented_tables: set[str
                     def_link = def_table
             else:
                 def_link = ""
-            col_rows.append(f"| {col['name']} | `{col['type']}` | {desc} | {def_link} |")
+            col_rows.append(
+                f"| {col['name']} | `{col['type']}` | {desc} | {def_link} |"
+            )
         else:
             col_rows.append(f"| {col['name']} | `{col['type']}` | {desc} |")
 
-    schema_table = '<div class="schema-table" markdown>\n\n' + header + "\n" + "\n".join(col_rows) + '\n\n</div>'
+    schema_table = (
+        '<div class="schema-table" markdown>\n\n'
+        + header
+        + "\n"
+        + "\n".join(col_rows)
+        + "\n\n</div>"
+    )
 
-    # Type badge
-    if table_type == "definition":
-        type_badge = "!!! abstract \"Definition Table\"\n    This is a validation/lookup table that defines valid codes for other tables.\n"
-    else:
-        type_badge = ""
+    return schema_table
 
-    # Definitions section - auto-detect .dat file
-    definitions_section = ""
-    if table_type == "definition":
-        dat_path = table_dir / f"{table_name}.dat"
-        headers = table.get("definition_headers")
-        definitions_section = read_definitions_file(dat_path, headers)
 
-    # References section
-    references_section = ""
-    refs = table.get("references", [])
-    if refs:
-        references_section = "## Referenced By\n\n"
-        for ref in refs:
-            if ref in documented_tables:
-                references_section += f"[{ref}]({ref}.md), "
+def _build_definitions_section(table: dict, table_dir: Path) -> str | None:
+    """Build the definitions section for a given table definition."""
+    if not _is_definition_table(table):
+        return None
 
-    # Queries section
+    dat_path = table_dir / f"{table['name']}.dat"
+    headers = table.get("definition_headers")
+    return _read_definitions_file(dat_path, headers)
+
+
+def _build_references_section(table: dict, documented_tables: set[str]) -> str:
+    """Build the references section for a given table definition."""
+    references = table.get("references", [])
+    if not references:
+        return ""
+
+    references_section = "## Referenced By\n\n"
+    for ref in references:
+        if ref in documented_tables:
+            references_section += f"[{ref}]({ref}.md), "
+
+    return references_section
+
+
+def _build_queries_section(table: dict, table_dir: Path) -> str:
+    """Build the queries section for a given table definition."""
+    queries = table.get("queries", [])
+    if not queries:
+        return "\n*No queries documented yet.*\n"
+
     queries_section = ""
-    for q in table.get("queries", []):
-        print(q["file"])
+    for q in queries:
         queries_section += f"\n### {q['name']}\n\n"
         queries_section += f"{q.get('description', '')}\n\n"
         queries_section += f'```sql title="{q["file"]}"\n'
-        queries_section += f'--8<-- "table-definitions/{"definition" if table.get("type") == "definition" else "data"}/{table_name}/sql/{q["file"]}"\n'
+        queries_section += f'--8<-- "table-definitions/{"definition" if _is_definition_table(table) else "data"}/{table["name"]}/sql/{q["file"]}"\n'
         queries_section += "```\n"
 
-    if not table.get("queries"):
-        queries_section = "\n*No queries documented yet.*\n"
-
-    md = f"""---
-tags:
-{tags_yaml}
----
-
-# {table_name}
-
-{table['description']}
-
-{type_badge}
-## Schema
-
-{schema_table}
-
-{definitions_section}
-{references_section}
-## Queries
-- - -
-{queries_section}"""
-
-    return md
+    return queries_section
 
 
-def build_cards(table_list: list[dict]) -> str:
+def _build_cards(table_list: list[dict]) -> str:
+    """Build a list of cards for the index pages."""
     cards = []
     for t in table_list:
         tags = " ".join(f"`{tag}`" for tag in t["tags"]) if t["tags"] else "*untagged*"
-        cards.append(f"""-   **{t['name']}**
 
-    ---
-
-    {t['description']}
-
-    **Tags:** {tags}
-
-    [:octicons-arrow-right-24: View table](tables/{t['name']}.md)""")
+        name = t["name"]
+        description = t.get("description", "")
+        card = env.get_template("card.md.j2").render(
+            name=name, description=description, tags=tags
+        )
+        cards.append(card)
     return "\n\n".join(cards)
 
 
-def generate_index(data_count: int, def_count: int) -> str:
-    return f"""---
-hide:
-  - navigation
-  - toc
----
-
-# Banner Table Dictionary
-
-Search for tables, schemas, and queries using the search bar above, or browse by category.
-
----
-
-<div class="grid cards" markdown>
-
--   :material-database:{{ .lg .middle }} **Data Tables**
-
-    ---
-
-    {data_count} tables containing application and business data.
-
-    [:octicons-arrow-right-24: Browse data tables](data-tables.md)
-
--   :material-book-open-variant:{{ .lg .middle }} **Definition Tables**
-
-    ---
-
-    {def_count} validation and lookup tables that define valid codes.
-
-    [:octicons-arrow-right-24: Browse definition tables](definition-tables.md)
-
-</div>
-"""
-
-
-def generate_type_index(tables: list[dict], title: str, description: str) -> str:
-    return f"""---
-hide:
-  - navigation
-  - toc
----
-
-# {title}
-
-{description}
-
----
-
-<div class="grid cards" markdown>
-
-{build_cards(tables)}
-
-</div>
-"""
-
-
 def update_nav():
-    """Rewrite nav to static structure - individual tables accessed via search and cards."""
-    text = MKDOCS_YML.read_text()
+    """Update the 'nav' section of mkdocs.yml to include the generated pages."""
+    with MKDOCS_YML.open("r", encoding="utf-8") as f:
+        config = yaml.load(f)
 
-    new_nav = """nav:
-  - Home: index.md
-  - Data Tables: data-tables.md
-  - Definition Tables: definition-tables.md
-  - Tags: tags.md
-"""
+    if not config or "nav" not in config:
+        logger.error("mkdocs.yml is missing or does not contain a 'nav' section.")
+        return
 
-    text = re.sub(
-        r"nav:\n(  - .*\n)+",
-        new_nav,
-        text
-    )
+    config["nav"] = [
+        {"Home": "index.md"},
+        {"Data Tables": "data-tables.md"},
+        {"Definition Tables": "definition-tables.md"},
+        {"Tags": "tags.md"},
+    ]
 
-    MKDOCS_YML.write_text(text)
+    with MKDOCS_YML.open("w", encoding="utf-8") as f:
+        yaml.dump(config, f)
 
 
 def main():
@@ -270,12 +262,14 @@ def main():
     # Each subfolder in table-definitions/data-tables and table-definitions/definition-tables is a table
     table_dirs = sorted(
         table_dir
-        for type_dir in DEFS_DIR.iterdir() if type_dir.is_dir()
-        for table_dir in type_dir.iterdir() if table_dir.is_dir()
+        for type_dir in DEFS_DIR.iterdir()
+        if type_dir.is_dir()
+        for table_dir in type_dir.iterdir()
+        if table_dir.is_dir()
     )
 
     if not table_dirs:
-        print(f"No table folders found in {DEFS_DIR}")
+        logger.error("No table folders found in %s", DEFS_DIR)
         return
 
     # First pass - load all tables
@@ -284,7 +278,7 @@ def main():
     for table_dir in table_dirs:
         json_files = list(table_dir.glob("*.json"))
         if not json_files:
-            print(f"  WARNING: No JSON file in {table_dir.name}/, skipping")
+            logger.warning("No JSON file in %s/, skipping", table_dir.name)
             continue
 
         table = json.loads(json_files[0].read_text())
@@ -299,49 +293,50 @@ def main():
         table_dir = dir_map[table["name"]]
         out_path = TABLES_DIR / f"{table['name']}.md"
         out_path.write_text(generate_table_page(table, table_dir, documented_tables))
-        print(f"  Generated {out_path.relative_to(ROOT)}")
+        logger.info("  Generated %s", out_path.relative_to(ROOT))
 
     # Split by type
-    data_tables = [t for t in tables if t.get("type", "data") == "data"]
-    def_tables = [t for t in tables if t.get("type") == "definition"]
+    data_tables, def_tables = [], []
+    for table in tables:
+        if _is_definition_table(table):
+            def_tables.append(table)
+        else:
+            data_tables.append(table)
 
-    # Generate index pages
+    # Generate data and definition index pages
     INDEX_MD.write_text(generate_index(len(data_tables), len(def_tables)))
-    print(f"  Updated {INDEX_MD.relative_to(ROOT)}")
+    logger.info("  Updated %s", INDEX_MD.relative_to(ROOT))
 
-    DATA_INDEX.write_text(generate_type_index(
-        data_tables,
-        "Data Tables",
-        "Application and business data tables."
-    ))
-    print(f"  Updated {DATA_INDEX.relative_to(ROOT)}")
+    DATA_INDEX.write_text(
+        generate_type_index(
+            data_tables, "Data Tables", "Application and business data tables."
+        )
+    )
+    logger.info("  Updated %s", DATA_INDEX.relative_to(ROOT))
 
     # Generate tags.md for the tags plugin
     TAGS_MD = DOCS_DIR / "tags.md"
-    TAGS_MD.write_text("""---
-hide:
-  - navigation
-  - toc
----
+    TAGS_MD.write_text(env.get_template("tags.md.j2").render())
+    logger.info("  Updated %s", TAGS_MD.relative_to(ROOT))
 
-# Tags
+    # Generate definition tables index
+    DEF_INDEX.write_text(
+        generate_type_index(
+            def_tables,
+            "Definition Tables",
+            "Validation and lookup tables that define valid codes used across the system.",
+        )
+    )
+    logger.info("  Updated %s", DEF_INDEX.relative_to(ROOT))
 
-<!-- This page is auto-populated by the tags plugin -->
-
-[TAGS]
-""")
-    print(f"  Updated {TAGS_MD.relative_to(ROOT)}")
-    DEF_INDEX.write_text(generate_type_index(
-        def_tables,
-        "Definition Tables",
-        "Validation and lookup tables that define valid codes used across the system."
-    ))
-    print(f"  Updated {DEF_INDEX.relative_to(ROOT)}")
-
+    # Update the nav section of mkdocs.yml
     update_nav()
-    print(f"  Updated {MKDOCS_YML.relative_to(ROOT)}")
+    logger.info("  Updated %s", MKDOCS_YML.relative_to(ROOT))
 
-    print(f"\nGenerated {len(tables)} table page(s) ({len(data_tables)} data, {len(def_tables)} definition)")
+    print()
+    logger.info(
+        f"Generated {len(tables)} table page(s) ({len(data_tables)} data, {len(def_tables)} definition)"
+    )
 
 
 if __name__ == "__main__":

@@ -72,7 +72,6 @@ nav:
   - Data Tables: data-tables.md
   - Definition Tables: definition-tables.md
   - Tags: tags.md
-
 extra_css:
   - stylesheets/extra.css
 

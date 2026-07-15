@@ -28,6 +28,21 @@
   display: none;
 }
 
+/* Scrollable, sticky-header layout for .dat value tables */
+.md-typeset .values-table table {
+  display: inline-block;
+  height: 400px;
+  overflow-y: auto;
+  table-layout: fixed;
+}
+
+.md-typeset .values-table thead {
+  position: sticky;
+  top: 0;
+  background: var(--md-default-bg-color);
+  z-index: 1;
+}
+
 h2[id^="tag:"] {
   font-weight: 600;
   text-transform: uppercase;

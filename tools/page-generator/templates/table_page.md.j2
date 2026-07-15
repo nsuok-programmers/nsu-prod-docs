@@ -1,0 +1,28 @@
+---
+tags:
+{% for tag in tags %}
+  - {{ tag }}
+{% endfor %}
+---
+
+# {{ table_name }}
+
+{{ description }}
+
+{% if is_definition %}
+!!! abstract "Definition Table"
+    This is a validation/lookup table that defines valid codes for other tables.
+{% endif %}
+
+## Schema
+
+{{ schema_table }}
+
+{{ definitions_section }}
+{{ references_section }}
+
+## Queries
+
+- - -
+
+{{ queries_section }}
