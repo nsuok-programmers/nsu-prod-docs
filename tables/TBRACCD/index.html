@@ -1,0 +1,1042 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal database schema and query reference">
+      
+      
+      
+        <link rel="canonical" href="https://nathantbeene.github.io/nate-prod-docs/tables/TBRACCD/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>TBRACCD - NSU Banner Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tbraccd" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="NSU Banner Documentation" class="md-header__button md-logo" aria-label="NSU Banner Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSU Banner Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TBRACCD
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data-tables/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data Tables
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../definition-tables/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Definition Tables
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NSU Banner Documentation" class="md-nav__button md-logo" aria-label="NSU Banner Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NSU Banner Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definition-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accounts-with-a-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accounts with a Balance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">balance</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">charges</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">financial</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">student</span>
+      
+    
+  </nav>
+
+
+
+<h1 id="tbraccd">TBRACCD</h1>
+<p>Account Charge/Payment Detail Table</p>
+<h2 id="schema">Schema</h2>
+<div class="schema-table">
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TBRACCD_PIDM</td>
+<td><code>NUMBER(8,0)</code></td>
+<td>Internal Identification Number of the person or non-person account, valid in SPRIDEN.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TRAN_NUMBER</td>
+<td><code>NUMBER(8,0)</code></td>
+<td>Transaction number (one-up within entity) of the transaction.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TERM_CODE</td>
+<td><code>VARCHAR2(6 CHAR)</code></td>
+<td>Term associated with the transaction. For student transactions valid in STVTERM, or ARTERM for non-student transactions.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_DETAIL_CODE</td>
+<td><code>VARCHAR2(4 CHAR)</code></td>
+<td>Detail code associated with the transaction, valid in TBBDETC.</td>
+<td>TBBDETC</td>
+</tr>
+<tr>
+<td>TBRACCD_USER</td>
+<td><code>VARCHAR2(30 CHAR)</code></td>
+<td>User ID of the cashier who created the transaction.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_ENTRY_DATE</td>
+<td><code>DATE</code></td>
+<td>Entry date and time of the transaction, when initially created.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_AMOUNT</td>
+<td><code>NUMBER(16,2)</code></td>
+<td>Amount of the transaction.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_BALANCE</td>
+<td><code>NUMBER(16,2)</code></td>
+<td>Balance remaining for the transaction, as adjusted by the application of payment process. A negative balance is a credit on the account; a positive balance is a charge.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_EFFECTIVE_DATE</td>
+<td><code>DATE</code></td>
+<td>Effective date of the transaction used to calculate amount due, determine placement on the bill, and control feed to finance system based on Accounts Receivable System Control setting.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_BILL_DATE</td>
+<td><code>DATE</code></td>
+<td>Date that the transaction is billed.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_DUE_DATE</td>
+<td><code>DATE</code></td>
+<td>Due date set when the transaction is billed.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_DESC</td>
+<td><code>VARCHAR2(30 CHAR)</code></td>
+<td>Free-form description associated with the transaction. Default value comes from the Detail Code description (TBBDETC).</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_RECEIPT_NUMBER</td>
+<td><code>NUMBER(8,0)</code></td>
+<td>Receipt number associated with the transaction, if generated when the transaction was created.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TRAN_NUMBER_PAID</td>
+<td><code>NUMBER(8,0)</code></td>
+<td>Transaction Number Paid is used in application of payment to force this transaction to liquidate a specific transaction on the account.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CROSSREF_PIDM</td>
+<td><code>NUMBER(8,0)</code></td>
+<td>Cross Reference internal identification number. Associates student and third party sponsor (source code C) or student and lender (source code F), valid in SPRIDEN.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CROSSREF_NUMBER</td>
+<td><code>NUMBER(8,0)</code></td>
+<td>Cross Reference Number for third party transactions (contract number when source code is C), exemption credits (exemption number when source code is E), or deposits released (deposit transaction number when source code is D).</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CROSSREF_DETAIL_CODE</td>
+<td><code>VARCHAR2(4 CHAR)</code></td>
+<td>Cross Reference Detail Code for contract or exemption credits calculated based on detail code rules, valid in TBBDETC.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_SRCE_CODE</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>Source of the transaction when created on the account, including registration, housing, deposit, user entered, and so on. The default value is user entered transaction (T), valid in TTVSRCE.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_ACCT_FEED_IND</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>Status of the transaction in the accounting feed. Valid values are: Y - Feed transaction, F - Transaction fed, N - Do not feed transaction.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_ACTIVITY_DATE</td>
+<td><code>DATE</code></td>
+<td>The last date this row was created or updated.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_SESSION_NUMBER</td>
+<td><code>NUMBER</code></td>
+<td>Cashier session number in which this transaction was posted (0 = current session).</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CSHR_END_DATE</td>
+<td><code>DATE</code></td>
+<td>End date and time of the cashiering session for this transaction.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CRN</td>
+<td><code>VARCHAR2(5 CHAR)</code></td>
+<td>Course Reference Number (CRN) of the course which generated the charge, when Track by CRN is used in Fee Assessment.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CROSSREF_SRCE_CODE</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>Cross Reference Source for contract or exemption credits, valid in TTVSRCE.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_LOC_MDT</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>Location Management Type. Valid values are M for monthly charges, T for term-based charges, or D for daily charges.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_LOC_MDT_SEQ</td>
+<td><code>NUMBER(2,0)</code></td>
+<td>Location Management sequence in which monthly charges were added. Used in subsequent processing to calculate adjustments.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_RATE</td>
+<td><code>NUMBER(12,6)</code></td>
+<td>A per-unit rate used to calculate the amount. Optional for non-student transactions; not allowed for student transactions.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_UNITS</td>
+<td><code>NUMBER(12,6)</code></td>
+<td>Number of Units is multiplied by the specified Rate to calculate the amount. Optional for non-student transactions; not allowed for student transactions.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_DOCUMENT_NUMBER</td>
+<td><code>VARCHAR2(8 CHAR)</code></td>
+<td>Document number that references a source document for the transaction.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TRANS_DATE</td>
+<td><code>DATE</code></td>
+<td>Transaction date used by the finance system to control posting to the ledgers.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_PAYMENT_ID</td>
+<td><code>VARCHAR2(20 CHAR)</code></td>
+<td>Free-form information identifying a payment; often used to record check or credit card number.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_INVOICE_NUMBER</td>
+<td><code>VARCHAR2(8 CHAR)</code></td>
+<td>Invoice Number identifies a group of charges invoiced via one statement.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_STATEMENT_DATE</td>
+<td><code>DATE</code></td>
+<td>The date a statement was generated.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_INV_NUMBER_PAID</td>
+<td><code>VARCHAR2(8 CHAR)</code></td>
+<td>Invoice Number Paid is used in application of payment to force a payment to liquidate a specific group of charges.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CURR_CODE</td>
+<td><code>VARCHAR2(4 CHAR)</code></td>
+<td>Foreign currency code used when creating a payment, valid in GTVCURR and GURCURR.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_EXCHANGE_DIFF</td>
+<td><code>NUMBER(16,2)</code></td>
+<td>Exchange difference between a foreign currency amount as of the date entered and the value 1) as of the bill date when processed with Invoice Number Paid or 2) as of the charge transaction date when processed with Transaction Number Paid.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_FOREIGN_AMOUNT</td>
+<td><code>NUMBER(16,2)</code></td>
+<td>Amount of the transaction stated in foreign currency.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_LATE_DCAT_CODE</td>
+<td><code>VARCHAR2(3 CHAR)</code></td>
+<td>Category of the late charge detail code, valid in TTVDCAT.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_FEED_DATE</td>
+<td><code>DATE</code></td>
+<td>Date this transaction was fed to the finance system.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_FEED_DOC_CODE</td>
+<td><code>VARCHAR2(8 CHAR)</code></td>
+<td>Document code used to feed this transaction to the finance system.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_ATYP_CODE</td>
+<td><code>VARCHAR2(2 CHAR)</code></td>
+<td>In combination with ATYP_SEQNO, the address where the bill for this transaction will be sent. Required for non-student transactions; not allowed for student transactions. Valid in STVATYP.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_ATYP_SEQNO</td>
+<td><code>NUMBER(2,0)</code></td>
+<td>In combination with ATYP_CODE, the address where the bill for this transaction will be sent. Required for non-student transactions; not allowed for student transactions. Combination valid and active in SPRADDR.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CARD_TYPE_VR</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>Credit Card Type used for Voice Response messages, valid in TTVCCRD.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CARD_EXP_DATE_VR</td>
+<td><code>DATE</code></td>
+<td>Credit card expiration date supplied at time of credit card payment.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CARD_AUTH_NUMBER_VR</td>
+<td><code>VARCHAR2(12 CHAR)</code></td>
+<td>Credit card authorization number received when transaction was processed.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CROSSREF_DCAT_CODE</td>
+<td><code>VARCHAR2(3 CHAR)</code></td>
+<td>Cross Reference Category Code for contract or exemption credits calculated based on category code rules, valid in TTVDCAT.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_ORIG_CHG_IND</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>Indicates that the transaction is to be considered as an original charge for the Title IV recalculation process, as opposed to subsequent adjustments due to withdrawal. Valid values are Y (original) or null.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CCRD_CODE</td>
+<td><code>VARCHAR2(10 CHAR)</code></td>
+<td>Code identifying Credit Card Type used in authorizations via gateway, valid in GTVCCRD.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_MERCHANT_ID</td>
+<td><code>VARCHAR2(20 CHAR)</code></td>
+<td>Merchant ID associated with the Process Name Code, Credit Card Type Code, and System Code. The Merchant ID is included in the credit card payment request transmitted to the vendor handling credit card payments.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TAX_REPT_YEAR</td>
+<td><code>NUMBER(4,0)</code></td>
+<td>Tax Year in which the transaction was reported on form 1098-T.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TAX_REPT_BOX</td>
+<td><code>VARCHAR2(2 CHAR)</code></td>
+<td>TAX REPORT BOX: Tax Report Box in which the transaction was reported on form 1098T for tax year prior to 2018 or towards max amount for Payments Received after 2017. Values (CB) Qualified Charges Billed, (AC) Adjustments to Prior Charges.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TAX_AMOUNT</td>
+<td><code>NUMBER(16,2)</code></td>
+<td>Tax Amount as reported on form 1098-T. Sign relates pay type to report box, and may be pro-rated based on allocation rules.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TAX_FUTURE_IND</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>TAX FUTURE IND: Tax Report Future Indicator is valued with Y if the transaction was reported on form 1098-T as a term beginning in a future tax year for rule CB, or null.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_DATA_ORIGIN</td>
+<td><code>VARCHAR2(30 CHAR)</code></td>
+<td>Source system that last created or updated the data.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CREATE_SOURCE</td>
+<td><code>VARCHAR2(30 CHAR)</code></td>
+<td>Source system that initially created the record.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_CPDT_IND</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>Indicates that contract payment detail is used for application of a payment to contract charges (Y or NULL).</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_AIDY_CODE</td>
+<td><code>VARCHAR2(4 CHAR)</code></td>
+<td>AID YEAR: The aid year associated with the Financial Aid disbursement.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_STSP_KEY_SEQUENCE</td>
+<td><code>NUMBER(2,0)</code></td>
+<td>STUDY PATH SEQUENCE: Key sequence of the study path for the course registration.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_PERIOD</td>
+<td><code>VARCHAR2(15 CHAR)</code></td>
+<td>PERIOD: The enrollment period code for the.Financial Aid disbursement.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TAX_REPT_BOX_PR</td>
+<td><code>VARCHAR2(2 BYTE)</code></td>
+<td>TAX REPT BOX PR: Tax Report Box in which the transaction was eligible for reporting on the form 1098T. Values (PR) Qualified Payments Received, (AP) Adjustments to Payments Received.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TAX_REPT_BOX_SG</td>
+<td><code>VARCHAR2(2 BYTE)</code></td>
+<td>TAX REPT BOX SG: Tax Report Box in which the transaction was reported on the form 1098T. Values (SG) Scholarship or Grant, (AS) Adjustments to Scholarship or Grant.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TAX_FUTURE_IND_PR</td>
+<td><code>VARCHAR2(1 BYTE)</code></td>
+<td>TAX FUTURE IND PR: Tax Report Future Indicator is valued with Y if the transaction was reported on form 1098-T as a term beginning in a future tax year for rule PR, or null.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_TAX_FUTURE_IND_SG</td>
+<td><code>VARCHAR2(1 BYTE)</code></td>
+<td>TAX FUTURE IND SG: Tax Report Future Indicator is valued with Y if the transaction was reported on form 1098-T as a term beginning in a future tax year for rule SG, or null.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_SURROGATE_ID</td>
+<td><code>NUMBER(19,0)</code></td>
+<td>SURROGATE ID: Immutable unique key</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_VERSION</td>
+<td><code>NUMBER(19,0)</code></td>
+<td>VERSION: Optimistic lock token.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_USER_ID</td>
+<td><code>VARCHAR2(30 BYTE)</code></td>
+<td>USER ID: The user ID of the person who inserted or last updated this record.</td>
+<td></td>
+</tr>
+<tr>
+<td>TBRACCD_VPDI_CODE</td>
+<td><code>VARCHAR2(6 BYTE)</code></td>
+<td>VPDI CODE: Multi-entity processing code.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="queries">Queries</h2>
+<hr />
+<h3 id="accounts-with-a-balance">Accounts with a Balance</h3>
+<p>A query to track if a person in TBBRACD has an outstanding balance, denoted by a negative balance after all transactions are added.</p>
+<div class="language-sql highlight"><span class="filename">has-balance.sql</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- 202630 Accounts with a balance</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">-- 4/10/26 Gabriel Berres</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">tbraccd_pidm</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">TBRACCD_AMOUNT</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">tbraccd_pidm</span><span class="p">)</span><span class="w"> </span><span class="n">balance</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">FROM</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">tbraccd</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">WHERE</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">tbraccd_balance</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">tbraccd_term_code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;202630&#39;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/table-filter.js"></script>
+      
+    
+  </body>
+</html>

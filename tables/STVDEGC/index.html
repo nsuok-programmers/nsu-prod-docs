@@ -1,0 +1,832 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal database schema and query reference">
+      
+      
+      
+        <link rel="canonical" href="https://nathantbeene.github.io/nate-prod-docs/tables/STVDEGC/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>STVDEGC - NSU Banner Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#stvdegc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="NSU Banner Documentation" class="md-header__button md-logo" aria-label="NSU Banner Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSU Banner Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              STVDEGC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data-tables/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data Tables
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../definition-tables/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Definition Tables
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NSU Banner Documentation" class="md-nav__button md-logo" aria-label="NSU Banner Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    NSU Banner Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../definition-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referenced-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referenced By
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queries
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="stvdegc">STVDEGC</h1>
+<p>Degree Code Validation Table</p>
+<div class="admonition abstract">
+<p class="admonition-title">Definition Table</p>
+<p>This is a validation/lookup table that defines valid codes for other tables.</p>
+</div>
+<h2 id="schema">Schema</h2>
+<div class="schema-table">
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STVDEGC_CODE</td>
+<td><code>VARCHAR2(6 CHAR)</code></td>
+<td>This field identifies the degree code referenced in the Recruiting, Admissions, Gen. Student, Registration, Academic History and Degree Audit Modules. 000000 - Degree Not Declared.</td>
+</tr>
+<tr>
+<td>STVDEGC_DESC</td>
+<td><code>VARCHAR2(30 CHAR)</code></td>
+<td>This field specifies the degree (e.g. Bachelor of Business Administration, Master of Arts, Juris Doctor, etc.) associated with the degree code.</td>
+</tr>
+<tr>
+<td>STVDEGC_LEVEL_ONE</td>
+<td><code>VARCHAR2(2 CHAR)</code></td>
+<td>This field is not currently in use.</td>
+</tr>
+<tr>
+<td>STVDEGC_LEVEL_TWO</td>
+<td><code>VARCHAR2(2 CHAR)</code></td>
+<td>This field is not currently in use.</td>
+</tr>
+<tr>
+<td>STVDEGC_LEVEL_THREE</td>
+<td><code>VARCHAR2(2 CHAR)</code></td>
+<td>This field is not currently in use.</td>
+</tr>
+<tr>
+<td>STVDEGC_FA_COUNT_IND</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>This field indicates whether the degree will count toward financial aid. Y - Count in financial aid.</td>
+</tr>
+<tr>
+<td>STVDEGC_ACTIVITY_DATE</td>
+<td><code>DATE</code></td>
+<td>This field identifies the most recent date a record was created or updated.</td>
+</tr>
+<tr>
+<td>STVDEGC_ACAT_CODE</td>
+<td><code>VARCHAR2(2 CHAR)</code></td>
+<td>Degree Award Catagory Code.</td>
+</tr>
+<tr>
+<td>STVDEGC_SYSTEM_REQ_IND</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>System Required Indicator</td>
+</tr>
+<tr>
+<td>STVDEGC_DLEV_CODE</td>
+<td><code>VARCHAR2(2 CHAR)</code></td>
+<td>Degree Level Code.</td>
+</tr>
+<tr>
+<td>STVDEGC_VR_MSG_NO</td>
+<td><code>NUMBER(6,0)</code></td>
+<td>The Voice Response message number assigned to the recorded message that describes the degree code.</td>
+</tr>
+<tr>
+<td>STVDEGC_DISP_WEB_IND</td>
+<td><code>VARCHAR2(1 CHAR)</code></td>
+<td>'N' Web display indicator</td>
+</tr>
+<tr>
+<td>STVDEGC_SURROGATE_ID</td>
+<td><code>NUMBER(19,0)</code></td>
+<td>SURROGATE ID: Immutable unique key</td>
+</tr>
+<tr>
+<td>STVDEGC_VERSION</td>
+<td><code>NUMBER(19,0)</code></td>
+<td>VERSION: Optimistic lock token.</td>
+</tr>
+<tr>
+<td>STVDEGC_USER_ID</td>
+<td><code>VARCHAR2(30 CHAR)</code></td>
+<td>USER ID: The user ID of the person who inserted or last updated this record.</td>
+</tr>
+<tr>
+<td>STVDEGC_DATA_ORIGIN</td>
+<td><code>VARCHAR2(30 CHAR)</code></td>
+<td>DATA ORIGIN: Source system that created or updated the data.</td>
+</tr>
+<tr>
+<td>STVDEGC_VPDI_CODE</td>
+<td><code>VARCHAR2(6 CHAR)</code></td>
+<td>VPDI CODE: Multi-entity processing code.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="values">Values</h2>
+<div class="filterable values-table">
+<table>
+<thead>
+<tr><th>STVDEGC_CODE</th><th>STVDEGC_DESC</th></tr>
+</thead>
+<tbody>
+<tr><td>AGS</td><td>Associate of General Studies</td></tr>
+<tr><td>MSL</td><td>Master of School Leadership</td></tr>
+<tr><td>MSBL</td><td>Master of Studies in Bus Law</td></tr>
+<tr><td>MSM</td><td>Master of Science in Mgmt</td></tr>
+<tr><td>MHCL</td><td>Master of Health Leadership</td></tr>
+<tr><td>MMIS</td><td>Master of Management Info Sys</td></tr>
+<tr><td>MSPM</td><td>Master of Svc/Prod Mgmt</td></tr>
+<tr><td>PHD</td><td>Ph.D</td></tr>
+<tr><td>MA</td><td>Master of Arts</td></tr>
+<tr><td>BA</td><td>Bachelor of Arts</td></tr>
+<tr><td>BS</td><td>Bachelor of Science</td></tr>
+<tr><td>MS</td><td>Master of Science</td></tr>
+<tr><td>MBA</td><td>Master of Business Admin.</td></tr>
+<tr><td>BBA</td><td>Bachelor of Business Admin.</td></tr>
+<tr><td>000000</td><td>Undeclared</td></tr>
+<tr><td>JD</td><td>Juris Doctor</td></tr>
+<tr><td>MD</td><td>Doctor of Medicine</td></tr>
+<tr><td>AS</td><td>Associate in Science</td></tr>
+<tr><td>AA</td><td>Associate in Arts</td></tr>
+<tr><td>AAS</td><td>Associate in Applied Science</td></tr>
+<tr><td>BED</td><td>Bachelor of Education</td></tr>
+<tr><td>MED</td><td>Master of Education</td></tr>
+<tr><td>EDD</td><td>Doctor of Education</td></tr>
+<tr><td>BFA</td><td>Bachelor of Fine Arts</td></tr>
+<tr><td>BSW</td><td>Bachelor of Social Work</td></tr>
+<tr><td>DDS</td><td>Doctor of Dental Surgery</td></tr>
+<tr><td>MFA</td><td>Master of Fine Arts</td></tr>
+<tr><td>MSW</td><td>Master of Social Work</td></tr>
+<tr><td>CERT</td><td>Certificate Program</td></tr>
+<tr><td>BA/MA</td><td>5 yr Bachelors and Masters</td></tr>
+<tr><td>BAR</td><td>Bachelor of Architecture</td></tr>
+<tr><td>BM</td><td>Bachelor of Music</td></tr>
+<tr><td>DMD</td><td>Doctor of Dental Medicine</td></tr>
+<tr><td>AT</td><td>Associate in Technology</td></tr>
+<tr><td>DIPL</td><td>Diploma</td></tr>
+<tr><td>BSN</td><td>Bachelor of Science in Nursing</td></tr>
+<tr><td>CPR</td><td>CPR Certification</td></tr>
+<tr><td>NODEG</td><td>No Degree</td></tr>
+<tr><td>BMS</td><td>Bachelor of Management Studies</td></tr>
+<tr><td>DOC</td><td>Doctorate/PhD</td></tr>
+<tr><td>MD/PHD</td><td>Medical</td></tr>
+<tr><td>MSN</td><td>Master of Science in Nursing</td></tr>
+<tr><td>BCOMM</td><td>Bachelor of Commerce</td></tr>
+<tr><td>MBA/JD</td><td>MBA/JD Joint Program</td></tr>
+<tr><td>MBE</td><td>Master of Business Education</td></tr>
+<tr><td>MPHIL</td><td>Master of Philosophy</td></tr>
+<tr><td>BSAD</td><td>Bachelor of Science, Bus Admin</td></tr>
+<tr><td>BMED</td><td>Bachelor of Music Education</td></tr>
+<tr><td>BPA</td><td>Bachelor of Prof Accountancy</td></tr>
+<tr><td>BSE</td><td>Bachelor of Science in Educati</td></tr>
+<tr><td>DD</td><td>Doctor of Divinity</td></tr>
+<tr><td>DHL</td><td>Doctor of Humane Letters</td></tr>
+<tr><td>DL</td><td>Doctor of Laws</td></tr>
+<tr><td>DM</td><td>Doctor of Music</td></tr>
+<tr><td>DS</td><td>Doctor of Science</td></tr>
+<tr><td>A</td><td>Associates</td></tr>
+<tr><td>ALA</td><td>Associate of Liberal Arts</td></tr>
+<tr><td>BSCE</td><td>Bachelor of Science Civil Eng</td></tr>
+<tr><td>DA</td><td>Doctor of Arts</td></tr>
+<tr><td>DMA</td><td>Doctor of Music Arts</td></tr>
+<tr><td>DO</td><td>Doctor of Osteopathy</td></tr>
+<tr><td>EDS</td><td>Educational Specialist</td></tr>
+<tr><td>MACC</td><td>Master of Accountancy</td></tr>
+<tr><td>MALS</td><td>Master of Arts in Library Sci</td></tr>
+<tr><td>MAR</td><td>Master of Arts in Religion</td></tr>
+<tr><td>MAT</td><td>Master of Arts in Technology</td></tr>
+<tr><td>MDIV</td><td>Master of Divinity</td></tr>
+<tr><td>MENGR</td><td>Master of Engineering</td></tr>
+<tr><td>MHR</td><td>Master of Human Relations</td></tr>
+<tr><td>MLIS</td><td>Master of Library and Info Sci</td></tr>
+<tr><td>MLS</td><td>Master of Library Science</td></tr>
+<tr><td>MM</td><td>Master of Music</td></tr>
+<tr><td>MME</td><td>Master of Music Education</td></tr>
+<tr><td>MMED</td><td>Master of Music Education</td></tr>
+<tr><td>MPA</td><td>Master of Public Admin</td></tr>
+<tr><td>MSE</td><td>Master of Science Education</td></tr>
+<tr><td>MSLS</td><td>Master of Science in Lib Sci</td></tr>
+<tr><td>MT</td><td>Master of Technology</td></tr>
+<tr><td>MVS</td><td>Master of Vision Science</td></tr>
+<tr><td>MLINS</td><td>Master of Liberal Ind Studies</td></tr>
+<tr><td>ZZ</td><td>Degree from other institution</td></tr>
+<tr><td>BAED</td><td>Bachelor of Arts in Education</td></tr>
+<tr><td>BGS</td><td>Bachelor of General Studies</td></tr>
+<tr><td>BME</td><td>Bachelor of Music Education</td></tr>
+<tr><td>BSED</td><td>Bachelor of Science in Educati</td></tr>
+<tr><td>BSHEA</td><td>Bachelor of Health Care Adm</td></tr>
+<tr><td>BSSCED</td><td>Bachelor of Science in Sci Ed</td></tr>
+<tr><td>BT</td><td>Bachelor of Technology</td></tr>
+<tr><td>MSED</td><td>Master of Science in Education</td></tr>
+<tr><td>OD</td><td>Doctor of Optometry</td></tr>
+<tr><td>UCERT</td><td>Undergraduate Certificate</td></tr>
+<tr><td>GCERT</td><td>Certificate after Masters</td></tr>
+<tr><td>B</td><td>Bachelors</td></tr>
+<tr><td>M</td><td>Masters</td></tr>
+<tr><td>ASSOC</td><td>Associates</td></tr>
+<tr><td>MHA</td><td>Master of Hospitality Admin</td></tr>
+<tr><td>PHARMD</td><td>Doctor of Pharmacy</td></tr>
+<tr><td>BAS</td><td>Bachelor of Applied Science</td></tr>
+<tr><td>BUS</td><td>Bachelor of University Studies</td></tr>
+<tr><td>BSSLP</td><td>Bach of Sci in Spch Lang Path</td></tr>
+<tr><td>BARSC</td><td>Bachelor of Arts &amp; Sciences</td></tr>
+<tr><td>BCERTM</td><td>Grad Cert Betw Bach Masters</td></tr>
+<tr><td>AFA</td><td>Associate of Fine Arts</td></tr>
+<tr><td>BLS</td><td>Bachelor of Liberal Studies</td></tr>
+<tr><td>BSRCT</td><td>Bach of Sci in Resp Care Thera</td></tr>
+<tr><td>DVM</td><td>Doctor of Veterinary Medicine</td></tr>
+<tr><td>MLST</td><td>Master of Legal Studies</td></tr>
+<tr><td>AUD</td><td>Doctor of Audiology</td></tr>
+<tr><td>MHSC</td><td>Master of Health Sciences</td></tr>
+<tr><td>DC</td><td>Doctor of Chiropractic</td></tr>
+<tr><td>BSHES</td><td>Bach of Sci in Human Env Sci</td></tr>
+<tr><td>MSSWE</td><td>Master of Software Engin</td></tr>
+<tr><td>BSMLS</td><td>Bach of Sci in Med Lab Sci</td></tr>
+<tr><td>OTD</td><td>Doctor of Occupational Therapy</td></tr>
+<tr><td>AB</td><td>Associate in Business</td></tr>
+<tr><td>AAB</td><td>Associate in Applied Business</td></tr>
+<tr><td>AAA</td><td>Associate in Applied Arts</td></tr>
+<tr><td>MSMLS</td><td>Master of Sci in Med Lab Sci</td></tr>
+<tr><td>DE</td><td>Doctor of Engineering</td></tr>
+<tr><td>BENG</td><td>Bachelor of Engineering</td></tr>
+<tr><td>BAA</td><td>Bachelor of Applied Arts</td></tr>
+<tr><td>BCERT</td><td>Certificate after Bachelors</td></tr>
+<tr><td>ASN</td><td>Associate of Sci in Nursing</td></tr>
+<tr><td>BL</td><td>Bachelor of Law</td></tr>
+<tr><td>BMDS</td><td>Bachelor of Multidisc Studies</td></tr>
+<tr><td>MPH</td><td>Master of Public Health</td></tr>
+<tr><td>HBD</td><td>Honors Baccalaureate Degree</td></tr>
+<tr><td>MPAS</td><td>Master of Physician Asst. Stud</td></tr>
+<tr><td>DBA</td><td>Doctor of Business Admin</td></tr>
+<tr><td>MMS</td><td>Master of Medical Science</td></tr>
+<tr><td>MAFM</td><td>Master of Accnt &amp; Fin Mgmt</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="referenced-by">Referenced By</h2>
+<p><a href="../SGBSTDN/">SGBSTDN</a>, <a href="../SHRDGMR/">SHRDGMR</a>, </p>
+<h2 id="queries">Queries</h2>
+<hr />
+<p><em>No queries documented yet.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.suggest", "search.highlight", "search.share", "navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/table-filter.js"></script>
+      
+    
+  </body>
+</html>

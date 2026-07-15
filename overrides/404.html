@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h1>Table Not Found</h1>
+
+<p>This table hasn't been documented yet. It may be on our list to add.</p>
+<hr>
+
+<div class="grid cards" markdown>
+  <ul>
+    <li>
+      <p><strong>Search</strong></p>
+      <p>Try searching for the table you're looking for.</p>
+      <p><a href="{{ base_url }}/">Back to home</a></p>
+    </li>
+    <li>
+      <p><strong>Browse</strong></p>
+      <p>Browse all documented tables by category.</p>
+      <p>
+        <a href="{{ base_url }}/data-tables/">Data tables</a> ·
+        <a href="{{ base_url }}/definition-tables/">Definition tables</a>
+      </p>
+    </li>
+  </ul>
+</div>
+{% endblock %}

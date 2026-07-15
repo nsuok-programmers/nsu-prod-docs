@@ -1,0 +1,137 @@
+/* Full width content when nav and toc are hidden */
+.md-content {
+    max-width: none;
+}
+
+.md-typeset .schema-table table {
+    width: 100%;
+    display: table;
+}
+
+.md-typeset .schema-table th:first-child,
+.md-typeset .schema-table td:first-child {
+    white-space: nowrap;
+}
+
+.md-typeset .schema-table th:nth-child(2),
+.md-typeset .schema-table td:nth-child(2) {
+    white-space: nowrap;
+}
+
+.md-typeset .schema-table th:nth-child(3),
+.md-typeset .schema-table td:nth-child(3) {
+    white-space: normal;
+    min-width: 300px;
+}
+
+.md-sidebar {
+  display: none;
+}
+
+/* Scrollable, sticky-header layout for .dat value tables */
+.md-typeset .values-table table {
+  display: inline-block;
+  height: 400px;
+  overflow-y: auto;
+  table-layout: fixed;
+}
+
+.md-typeset .values-table thead {
+  position: sticky;
+  top: 0;
+  background: var(--md-default-bg-color);
+  z-index: 1;
+}
+
+h2[id^="tag:"] {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 !important;
+}
+
+.md-tag {
+  font-size: 1rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  background: transparent !important;
+}
+
+#tags {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+/* Pill container */
+h2[id^="tag:"] + ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Each pill */
+h2[id^="tag:"] + ul li {
+  width: fit-content;
+  margin: 0 !important;
+}
+h2[id^="tag:"] + ul li a {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  max-width: 200px;
+  height: 1.5rem;
+  display: flex;
+  width: fit-content;
+  margin: 0 !important;
+}
+
+/* Each pill */
+h2[id^="tag:"] + ul li a:hover {
+  color: var(--md-primary-bg-color);
+  filter: brightness(1.2);
+  transition: filter 0.2s ease-in-out;
+}
+
+/* Link inside pill */
+/* h2[id^="tag:"] + ul li a {
+  color: inherit;
+  text-decoration: none;
+}
+h2[id^="tag:"] + ul li a:hover {
+  color: inherit;
+} */
+
+/* This targets the "default" (light) color scheme */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #004d25;
+  --md-primary-fg-color--dark:  #004d25;
+  --md-accent-fg-color:         #11c96a;
+  --md-typeset-a-color:         #0a914b;
+}
+
+/* This targets the "slate" (dark) color scheme */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #004d25;
+  --md-primary-fg-color--dark:  #00361a;
+  --md-accent-fg-color:         #11c96a;
+  --md-typeset-a-color:         #0eba61;
+}
+
+/* Override only links to be lighter */
+/* :root {
+  --md-typeset-a-color: #11e879 !important;
+} */
+/* Hover state */
+/* .md-typeset a:hover {
+  color: rgb(4, 159, 79) !important; 
+  text-decoration: underline;
+} */
