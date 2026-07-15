@@ -14,6 +14,11 @@ import json
 import re
 import sys
 from pathlib import Path
+import logging
+
+# Set up logging
+logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 SCRIPT_DIR = Path(__file__).parent
 INPUT_DIR = SCRIPT_DIR / "info-files"
@@ -30,7 +35,7 @@ def parse_info(filepath: str) -> dict:
         "type": "data",
         "tags": [],
         "queries": [],
-        "columns": []
+        "columns": [],
     }
 
     # Extract table name
@@ -61,17 +66,21 @@ def parse_info(filepath: str) -> dict:
     col_end = len(lines)
     for i in range(col_start, len(lines)):
         stripped = lines[i].strip()
-        if stripped == "" or stripped.startswith("Indexes") or stripped.startswith("INDEX_NAME"):
+        if (
+            stripped == ""
+            or stripped.startswith("Indexes")
+            or stripped.startswith("INDEX_NAME")
+        ):
             col_end = i
             break
 
     # Parse columns - new column starts with space + uppercase name
     # Continuation lines are heavily indented with no column name pattern
     col_pattern = re.compile(
-        r"^[\s*]([A-Z][A-Z0-9_]+)\s+"   # column name (leading space or * for primary key)
-        r"([\w()., ]+?)\s{2,}"           # data type (stop at 2+ spaces)
-        r"(Yes|No)\s*"                   # nullable (no longer requires trailing space)
-        r"(.*)"                          # rest is default + comment (can be empty)
+        r"^[\s*]([A-Z][A-Z0-9_]+)\s+"  # column name (leading space or * for primary key)
+        r"([\w()., ]+?)\s{2,}"  # data type (stop at 2+ spaces)
+        r"(Yes|No)\s*"  # nullable (no longer requires trailing space)
+        r"(.*)"  # rest is default + comment (can be empty)
     )
 
     columns = []
@@ -93,7 +102,7 @@ def parse_info(filepath: str) -> dict:
                 "name": name,
                 "type": dtype,
                 "description": remainder,
-                "definition_table": ""
+                "definition_table": "",
             }
         elif current and line.strip():
             current["description"] += " " + line.strip()
@@ -118,7 +127,7 @@ def main():
         table_name = sys.argv[1].upper()
         target = INPUT_DIR / f"{table_name}.info"
         if not target.exists():
-            print(f"File not found: {target}")
+            logger.error(f"File not found: {target}")
             return
         files = [target]
     else:
@@ -126,16 +135,17 @@ def main():
         files = sorted(INPUT_DIR.glob("*.info"))
 
     if not files:
-        print(f"No .info files found in {INPUT_DIR}")
+        logger.info(f"No .info files found in {INPUT_DIR}")
         return
 
     for f in files:
         result = parse_info(str(f))
         out_path = OUTPUT_DIR / f"{result['name']}.json"
         out_path.write_text(json.dumps(result, indent=2) + "\n")
-        print(f"{f.name} -> {out_path.name}  ({len(result['columns'])} columns)")
+        logger.info(f"{f.name} -> {out_path.name}  ({len(result['columns'])} columns)")
 
-    print(f"\nConverted {len(files)} file(s) to {OUTPUT_DIR}")
+    print()
+    logger.info(f"Converted {len(files)} file(s) to {OUTPUT_DIR}")
 
 
 if __name__ == "__main__":

@@ -11,8 +11,12 @@ Usage:
 """
 
 import json
-import re
 from pathlib import Path
+import logging
+
+# Set up logging
+logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 SCRIPT_DIR = Path(__file__).parent
 ROOT = SCRIPT_DIR.parent.parent
@@ -22,11 +26,7 @@ DEFS_DIR = ROOT / "table-definitions"
 
 def get_documented_tables() -> set[str]:
     """Get set of table names that have folders in table-definitions/."""
-    return {
-        d.name.upper()
-        for d in DEFS_DIR.iterdir()
-        if d.is_dir()
-    }
+    return {d.name.upper() for d in DEFS_DIR.iterdir() if d.is_dir()}
 
 
 def parse_references_from_info(filepath: Path) -> list[str]:
@@ -99,31 +99,34 @@ def update_json_references(ref_map: dict[str, list[str]], documented_tables: set
         if filtered_refs != old_refs:
             table["references"] = filtered_refs
             json_path.write_text(json.dumps(table, indent=2) + "\n")
-            print(f"  Updated {table_name} ({len(filtered_refs)} references)")
+            logger.info("  Updated %s (%d references)", table_name, len(filtered_refs))
             updated += 1
         else:
-            print(f"  No change {table_name} ({len(filtered_refs)} references)")
+            logger.info(
+                "  No change %s (%d references)", table_name, len(filtered_refs)
+            )
 
     return updated
 
 
 def main():
     if not INFO_DIR.exists():
-        print(f"Info files directory not found: {INFO_DIR}")
+        logger.error(f"Info files directory not found: {INFO_DIR}")
         return
 
     if not DEFS_DIR.exists():
-        print(f"Table definitions directory not found: {DEFS_DIR}")
+        logger.error(f"Table definitions directory not found: {DEFS_DIR}")
         return
 
-    print("Building reference map from .info files...")
+    logger.info("Building reference map from .info files...")
     ref_map = build_reference_map()
-    print(f"  Parsed {len(ref_map)} .info files\n")
+    logger.info(f"  Parsed {len(ref_map)} .info files\n")
 
-    print("Updating table definitions...")
+    logger.info("Updating table definitions...")
     documented_tables = get_documented_tables()
     updated = update_json_references(ref_map, documented_tables)
-    print(f"\n  {updated} table(s) updated")
+    print()
+    logger.info(f"  {updated} table(s) updated")
 
 
 if __name__ == "__main__":
